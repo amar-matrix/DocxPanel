@@ -1,0 +1,74 @@
+{
+  "name": "Cohort",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the cohort"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description or clinical context"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "archived"
+      ],
+      "default": "draft",
+      "description": "Current status of the cohort"
+    },
+    "rules": {
+      "type": "array",
+      "description": "Serialized inclusion/exclusion criteria rules",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "logic": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "include",
+              "exclude"
+            ],
+            "default": "include"
+          }
+        }
+      }
+    },
+    "estimated_size": {
+      "type": "number",
+      "description": "Last estimated patient count"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Therapeutic area tags e.g. Oncology, Cardiology"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Researcher notes about this cohort"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
