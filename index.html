@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <link href="https://media.base44.com/images/public/69ec85f57ae6d7cded9693d4/7d7181802_logo.png" rel="icon" type="image/svg+xml">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="/manifest.json" rel="manifest">
+  <title>
+   ClinicoLens
+  </title>
+  <script crossorigin="" src="js/index-o1npCqt9.js" type="module">
+  </script>
+  <link crossorigin="" href="css/index-BGVTbnpg.css" rel="stylesheet">
+  <script type="module">
+   if (window.self === window.top) {
+  let lastPath = "";
+  function getPageNameFromPath(path) {
+    const segments = path.split("/").filter(Boolean);
+    return segments[0] || null;
+  }
+  function trackPageView() {
+    const path = window.location.pathname;
+    if (path === lastPath) return;
+    lastPath = path;
+    const pageName = getPageNameFromPath(path) || "home";
+    const appId = "69ec85f57ae6d7cded9693d4";
+    if (!appId) return;
+    fetch(`/app-logs/${appId}/log-user-in-app/${pageName}`, {
+      method: "POST",
+    }).catch(() => {});
+  }
+  const originalPushState = history.pushState.bind(history);
+  history.pushState = function (...args) {
+    originalPushState(...args);
+    trackPageView();
+  };
+  const originalReplaceState = history.replaceState.bind(history);
+  history.replaceState = function (...args) {
+    originalReplaceState(...args);
+    trackPageView();
+  };
+  window.addEventListener("popstate", trackPageView);
+  trackPageView();
+}
+  </script>
+  <meta content="The intelligence layer for clinical research, turning massive volumes of trial data into actionable medical insights." name="description">
+  <meta content="ClinicoLens" property="og:title">
+  <meta content="The intelligence layer for clinical research, turning massive volumes of trial data into actionable medical insights." property="og:description">
+  <meta content="https://media.base44.com/images/public/69ec85f57ae6d7cded9693d4/7d7181802_logo.png/v1/fill/w_1200,h_630/7d7181802_logo.png" property="og:image">
+  <meta content="https://amar-personalproject4-docxpanel.base44.app" property="og:url">
+  <meta content="website" property="og:type">
+  <meta content="ClinicoLens" property="og:site_name">
+  <meta content="ClinicoLens" name="twitter:title">
+  <meta content="The intelligence layer for clinical research, turning massive volumes of trial data into actionable medical insights." name="twitter:description">
+  <meta content="https://media.base44.com/images/public/69ec85f57ae6d7cded9693d4/7d7181802_logo.png/v1/fill/w_1200,h_630/7d7181802_logo.png" name="twitter:image">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="https://amar-personalproject4-docxpanel.base44.app" name="twitter:url">
+  <meta content="yes" name="mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="ClinicoLens" name="apple-mobile-web-app-title">
+  <link href="https://amar-personalproject4-docxpanel.base44.app" rel="canonical">
+  <script data-seo-source="builder" type="application/ld+json">
+   {"name": "ClinicoLens", "@context": "https://schema.org", "@type": "WebSite", "url": "https://clinical-data-insight.base44.app"}
+  </script>
+  <script data-seo-source="builder" type="application/ld+json">
+   {"name": "ClinicoLens", "logo": "https://media.base44.com/images/public/69ec85f57ae6d7cded9693d4/7d7181802_logo.png", "@context": "https://schema.org", "@type": "Organization", "url": "https://clinical-data-insight.base44.app"}
+  </script>
+  <script data-seo-source="builder" type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"name": "Home", "item": "https://clinical-data-insight.base44.app", "position": "1", "@type": "ListItem"}, {"name": "Analytics", "item": "https://clinical-data-insight.base44.app/Analytics", "position": "2", "@type": "ListItem"}, {"name": "AppSettings", "item": "https://clinical-data-insight.base44.app/AppSettings", "position": "3", "@type": "ListItem"}, {"name": "KnowledgeGraph", "item": "https://clinical-data-insight.base44.app/KnowledgeGraph", "position": "4", "@type": "ListItem"}, {"name": "LiteratureSearch", "item": "https://clinical-data-insight.base44.app/LiteratureSearch", "position": "5", "@type": "ListItem"}, {"name": "Regulatory", "item": "https://clinical-data-insight.base44.app/Regulatory", "position": "6", "@type": "ListItem"}, {"name": "Reports", "item": "https://clinical-data-insight.base44.app/Reports", "position": "7", "@type": "ListItem"}, {"name": "TrialIntelligence", "item": "https://clinical-data-insight.base44.app/TrialIntelligence", "position": "8", "@type": "ListItem"}]}
+  </script>
+  <script async="true" data-app-id="69ec85f57ae6d7cded9693d4" data-platform-url="https://app.base44.com" src="js/badge.js">
+  </script>
+ </head>
+ <body>
+  <div id="root">
+  </div>
+ </body>
+</html>
