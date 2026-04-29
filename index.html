@@ -1723,6 +1723,358 @@
             color: var(--color-surface-base);
         }
 
+        /* ===== LINKEDIN SECTION ===== */
+        .linkedin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: var(--spacing-12);
+            align-items: start;
+            margin-top: var(--spacing-12);
+        }
+
+        .linkedin-profile-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: sticky;
+            top: calc(80px + var(--spacing-8));
+        }
+
+        .li-card-banner {
+            height: 72px;
+            background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .li-card-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.12) 0%, rgba(0, 212, 255, 0.10) 100%);
+        }
+
+        .li-card-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-brand-secondary), var(--color-brand-tertiary), transparent);
+            opacity: 0.4;
+        }
+
+        .li-card-header {
+            padding: 0 var(--spacing-6) var(--spacing-4);
+        }
+
+        .li-logo-container {
+            width: 68px;
+            height: 68px;
+            border-radius: var(--radius-md);
+            background: var(--color-surface-base);
+            border: 3px solid var(--color-surface-card);
+            margin-top: -34px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .li-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 6px;
+        }
+
+        .li-card-body {
+            padding: var(--spacing-2) var(--spacing-6) var(--spacing-6);
+        }
+
+        .li-company-name {
+            font-family: var(--font-display);
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .li-company-tagline {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-4);
+            line-height: 1.5;
+        }
+
+        .li-follow-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-5);
+            background: none;
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: var(--radius-full);
+            color: var(--color-text-secondary);
+            font-family: var(--font-primary);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            transition: all var(--duration-base) var(--easing-smooth);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .li-follow-link:hover {
+            border-color: var(--color-brand-secondary);
+            color: var(--color-brand-secondary);
+            box-shadow: var(--shadow-glow-cyan);
+        }
+
+        .li-follow-link svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .li-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+            padding: var(--spacing-4) 0;
+            border-top: 1px solid var(--color-border-subtle);
+            border-bottom: 1px solid var(--color-border-subtle);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .li-detail-item {
+            display: flex;
+            align-items: baseline;
+            gap: var(--spacing-3);
+        }
+
+        .li-detail-label {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            min-width: 80px;
+            flex-shrink: 0;
+        }
+
+        .li-detail-value {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+
+        .li-detail-value a {
+            color: var(--color-text-link);
+            text-decoration: none;
+            transition: opacity var(--duration-base);
+        }
+
+        .li-detail-value a:hover {
+            opacity: 0.8;
+        }
+
+        .li-specialties-label {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .li-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+        }
+
+        .li-specialty-tag {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-brand-secondary);
+            background: rgba(0, 255, 136, 0.07);
+            border: 1px solid rgba(0, 255, 136, 0.18);
+            border-radius: var(--radius-full);
+            padding: 3px var(--spacing-3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        /* Post Feed */
+        .linkedin-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .li-post-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-6);
+            transition: border-color var(--duration-base) var(--easing-smooth), transform var(--duration-moderate) var(--easing-smooth);
+        }
+
+        .li-post-card:hover {
+            border-color: var(--color-border-emphasis);
+            transform: translateX(4px);
+        }
+
+        .li-post-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .li-post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid var(--color-border-default);
+            background: var(--color-surface-elevated);
+        }
+
+        .li-post-avatar--company {
+            border-radius: var(--radius-base);
+        }
+
+        .li-post-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .li-post-avatar--company img {
+            object-fit: contain;
+            padding: 4px;
+        }
+
+        .li-post-author-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .li-post-name {
+            font-family: var(--font-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .li-post-role {
+            font-size: 0.72rem;
+            color: var(--color-text-tertiary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .li-post-meta {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .li-post-link-icon {
+            flex-shrink: 0;
+            color: var(--color-text-tertiary);
+            transition: color var(--duration-base);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .li-post-link-icon:hover {
+            color: var(--color-brand-secondary);
+        }
+
+        .li-post-link-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .li-post-headline {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            line-height: 1.35;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .li-post-excerpt {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+            margin-bottom: var(--spacing-4);
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .li-post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .li-post-tags span {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-brand-tertiary);
+        }
+
+        .li-post-engagement {
+            display: flex;
+            gap: var(--spacing-4);
+            padding-top: var(--spacing-3);
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
+        .li-post-engagement span {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .li-post-engagement span:first-child {
+            color: var(--color-brand-secondary);
+            font-weight: 700;
+        }
+
+        @media (max-width: 968px) {
+            .linkedin-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .linkedin-profile-card {
+                position: static;
+            }
+        }
+
         /* ===== MODAL ===== */
         .modal {
             display: none;
@@ -2157,10 +2509,221 @@
         </div>
     </section>
 
+    <!-- LinkedIn Section -->
+    <section class="section linkedin-section" id="linkedin">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-label">[005] ON LINKEDIN</div>
+                <h2 class="section-title">Follow Our Journey</h2>
+                <p class="section-description">
+                    Stay connected with DocxPanel's latest milestones, research, and updates in healthcare AI.
+                </p>
+            </div>
+
+            <div class="linkedin-grid">
+
+                <!-- Company Profile Card -->
+                <div class="linkedin-profile-card" data-aos="fade-right">
+                    <div class="li-card-banner"></div>
+                    <div class="li-card-header">
+                        <div class="li-logo-container">
+                            <img src="sc.png" alt="DocxPanel" class="li-logo">
+                        </div>
+                    </div>
+                    <div class="li-card-body">
+                        <h3 class="li-company-name">DocxPanel</h3>
+                        <p class="li-company-tagline">A Complete Data Ecosystem, Streamlined for You</p>
+
+                        <a href="https://www.linkedin.com/company/docxpanel/" target="_blank" rel="noopener noreferrer" class="li-follow-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            Follow · 105 followers
+                        </a>
+
+                        <div class="li-details">
+                            <div class="li-detail-item">
+                                <span class="li-detail-label">Industry</span>
+                                <span class="li-detail-value">Technology, Information and Internet</span>
+                            </div>
+                            <div class="li-detail-item">
+                                <span class="li-detail-label">Type</span>
+                                <span class="li-detail-value">Privately Held</span>
+                            </div>
+                            <div class="li-detail-item">
+                                <span class="li-detail-label">Location</span>
+                                <span class="li-detail-value">Vijayawada, Andhra Pradesh, India</span>
+                            </div>
+                            <div class="li-detail-item">
+                                <span class="li-detail-label">Website</span>
+                                <span class="li-detail-value"><a href="https://docxpanel.com" target="_blank" rel="noopener noreferrer">docxpanel.com</a></span>
+                            </div>
+                        </div>
+
+                        <div class="li-specialties-label">Specialties</div>
+                        <div class="li-specialties">
+                            <span class="li-specialty-tag">Medical Data Sourcing</span>
+                            <span class="li-specialty-tag">De-identification</span>
+                            <span class="li-specialty-tag">Healthcare AI</span>
+                            <span class="li-specialty-tag">HIPAA Compliance</span>
+                            <span class="li-specialty-tag">NLP &amp; NER</span>
+                            <span class="li-specialty-tag">Clinical Trials</span>
+                            <span class="li-specialty-tag">RWE Analytics</span>
+                            <span class="li-specialty-tag">Data Organization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Post Feed from LinkedIn -->
+                <div class="linkedin-highlights">
+
+                    <!-- Post 1: India's AI Healthcare Moment — highest engagement (127 reactions) -->
+                    <div class="li-post-card" data-aos="fade-left" data-aos-delay="0">
+                        <div class="li-post-author">
+                            <div class="li-post-avatar li-post-avatar--company">
+                                <img src="sc.png" alt="Docxpanel" loading="lazy">
+                            </div>
+                            <div class="li-post-author-info">
+                                <span class="li-post-name">Docxpanel</span>
+                                <span class="li-post-role">Technology, Information and Internet</span>
+                                <span class="li-post-meta">3 weeks ago &nbsp;·&nbsp; Company</span>
+                            </div>
+                            <a href="https://www.linkedin.com/company/docxpanel/posts/" target="_blank" rel="noopener noreferrer" class="li-post-link-icon" aria-label="View on LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                        <h4 class="li-post-headline">India's AI in Healthcare Moment: Are We Scaling Innovation — or Just Pilots?</h4>
+                        <p class="li-post-excerpt">India is seeing an explosion of AI in healthcare. EMRs exist, but data is often inconsistent, incomplete, or siloed. Clinical workflows remain largely manual despite digital layers. The gap isn't innovation — it's execution at scale. DocxPanel is not another AI tool. It's the layer that makes AI actually work: turning scattered clinical documents into structured, AI-ready data and enabling seamless integration into real-world workflows.</p>
+                        <div class="li-post-tags">
+                            <span>#AIinHealthcare</span>&nbsp;
+                            <span>#DigitalHealthIndia</span>&nbsp;
+                            <span>#HealthTech</span>&nbsp;
+                            <span>#ABDM</span>
+                        </div>
+                        <div class="li-post-engagement">
+                            <span>127 reactions</span>
+                            <span>20 comments</span>
+                            <span>7 reposts</span>
+                        </div>
+                    </div>
+
+                    <!-- Post 2: Healthcare 2050 — Sharmeen Tole CMO (112 reactions) -->
+                    <div class="li-post-card" data-aos="fade-left" data-aos-delay="80">
+                        <div class="li-post-author">
+                            <div class="li-post-avatar">
+                                <img src="sharmeen_cmo.png" alt="Sharmeen Tole" loading="lazy">
+                            </div>
+                            <div class="li-post-author-info">
+                                <span class="li-post-name">Sharmeen Tole</span>
+                                <span class="li-post-role">Chief Marketing Officer · DocxPanel</span>
+                                <span class="li-post-meta">4 days ago</span>
+                            </div>
+                            <a href="https://www.linkedin.com/company/docxpanel/posts/" target="_blank" rel="noopener noreferrer" class="li-post-link-icon" aria-label="View on LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                        <h4 class="li-post-headline">Healthcare in 2050 Won't Just Be About Hospitals — It Will Be About People, Prevention, and Personalization</h4>
+                        <p class="li-post-excerpt">Care moves beyond hospital walls. Precision health tailored to every individual. Continuous monitoring through smart wearables. AI assisting clinicians for faster, smarter decisions. Patients owning and controlling their health data. The real shift? From treating illness to maintaining wellness. From episodic care to lifelong health partnerships. From system-centered to patient-centered care.</p>
+                        <div class="li-post-tags">
+                            <span>#HealthcareInnovation</span>&nbsp;
+                            <span>#AIInHealthcare</span>&nbsp;
+                            <span>#PatientCentric</span>&nbsp;
+                            <span>#HealthTech</span>
+                        </div>
+                        <div class="li-post-engagement">
+                            <span>112 reactions</span>
+                            <span>20 comments</span>
+                            <span>4 reposts</span>
+                        </div>
+                    </div>
+
+                    <!-- Post 3: AI Governance (110 reactions) -->
+                    <div class="li-post-card" data-aos="fade-left" data-aos-delay="160">
+                        <div class="li-post-author">
+                            <div class="li-post-avatar">
+                                <img src="ceo2.png" alt="Dr. Sai Ashrit Bandlamudi" loading="lazy">
+                            </div>
+                            <div class="li-post-author-info">
+                                <span class="li-post-name">Dr. Sai Ashrit Bandlamudi</span>
+                                <span class="li-post-role">CEO &amp; Founder · DocxPanel</span>
+                                <span class="li-post-meta">3 days ago</span>
+                            </div>
+                            <a href="https://www.linkedin.com/company/docxpanel/posts/" target="_blank" rel="noopener noreferrer" class="li-post-link-icon" aria-label="View on LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                        <h4 class="li-post-headline">AI Without Governance Isn't Innovation. It's Risk — at Scale.</h4>
+                        <p class="li-post-excerpt">AI agents in healthcare are no longer just assistants — they access sensitive patient data, trigger clinical workflows, and act across systems, often without human intervention. Regulations like India's DPDP Act, GDPR, and HIPAA aren't asking "Do you have AI?" They're asking whether you can prove why a decision was made, trace where the data came from, and enforce consent in real-time. DocxPanel builds the governed data layer so AI is accountable, compliant, and trustworthy.</p>
+                        <div class="li-post-tags">
+                            <span>#AIinHealthcare</span>&nbsp;
+                            <span>#DataGovernance</span>&nbsp;
+                            <span>#HIPAA</span>&nbsp;
+                            <span>#DPDP</span>
+                        </div>
+                        <div class="li-post-engagement">
+                            <span>110 reactions</span>
+                            <span>30 comments</span>
+                            <span>9 reposts</span>
+                        </div>
+                    </div>
+
+                    <!-- Post 4: Agentic AI (83 reactions) — Dr. Sai Ashrit -->
+                    <div class="li-post-card" data-aos="fade-left" data-aos-delay="240">
+                        <div class="li-post-author">
+                            <div class="li-post-avatar">
+                                <img src="ceo2.png" alt="Dr. Sai Ashrit Bandlamudi" loading="lazy">
+                            </div>
+                            <div class="li-post-author-info">
+                                <span class="li-post-name">Dr. Sai Ashrit Bandlamudi</span>
+                                <span class="li-post-role">CEO &amp; Founder · DocxPanel</span>
+                                <span class="li-post-meta">1 week ago</span>
+                            </div>
+                            <a href="https://www.linkedin.com/company/docxpanel/posts/" target="_blank" rel="noopener noreferrer" class="li-post-link-icon" aria-label="View on LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                        <h4 class="li-post-headline">A Nurse Works an 8-Hour Shift. 3 Hours on Care. 5 Hours on Paperwork. We've Been Solving the Wrong Problem.</h4>
+                        <p class="li-post-excerpt">Everyone is talking about AI agents in healthcare. Almost no one is talking about controlling them. The shift isn't about better chatbots — it's about Agentic AI: systems given a goal that independently plan steps, use the right tools, correct course, and deliver outcomes. Before any agentic system can act, it needs clean, structured, reliable data. Clinical notes, intake forms, reports, care plans. That's the unglamorous foundation no one talks about — and exactly where most healthcare AI initiatives quietly break down. That's the layer DocxPanel solves.</p>
+                        <div class="li-post-tags">
+                            <span>#AgenticAI</span>&nbsp;
+                            <span>#HealthcareAI</span>&nbsp;
+                            <span>#ClinicalDocumentation</span>&nbsp;
+                            <span>#DigitalHealth</span>
+                        </div>
+                        <div class="li-post-engagement">
+                            <span>83 reactions</span>
+                            <span>12 comments</span>
+                            <span>6 reposts</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="section cta-section" id="contact">
         <div class="cta-container">
-            <div class="section-label" data-aos="fade-up">[005] SCHEDULE DEMO</div>
+            <div class="section-label" data-aos="fade-up">[006] SCHEDULE DEMO</div>
             <h2 class="cta-title" data-aos="fade-up" data-aos-delay="100">
                 Ready to Power Your AI Project?
             </h2>
