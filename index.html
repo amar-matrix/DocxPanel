@@ -2160,11 +2160,64 @@
             flex-shrink: 0;
         }
 
-        .browser-content {
-            display: grid;
-            grid-template-columns: 200px 1fr;
+        .browser-screenshot {
+            line-height: 0;
             background: var(--color-surface-base);
-            min-height: 540px;
+        }
+
+        .browser-screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 560px;
+            object-fit: cover;
+            object-position: top;
+            transition: opacity 0.25s ease;
+        }
+
+        /* Module tab pills above the browser frame */
+        .module-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+            justify-content: center;
+            margin-bottom: var(--spacing-6);
+        }
+
+        .module-tab {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: 999px;
+            font-family: var(--font-primary);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all var(--duration-base);
+        }
+
+        .module-tab svg {
+            width: 13px;
+            height: 13px;
+            flex-shrink: 0;
+        }
+
+        .module-tab:hover {
+            border-color: var(--color-brand-secondary);
+            color: var(--color-brand-secondary);
+        }
+
+        .module-tab.active {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--color-brand-secondary);
+            color: var(--color-brand-secondary);
+            box-shadow: 0 0 14px rgba(0, 255, 136, 0.15);
         }
 
         .app-sidebar {
@@ -2920,12 +2973,6 @@
             gap: var(--spacing-3);
         }
 
-        .platform-cta-meta {
-            font-family: var(--font-primary);
-            font-size: 0.7rem;
-            color: var(--color-text-tertiary);
-        }
-
         .platform-cta .btn svg {
             width: 14px;
             height: 14px;
@@ -2933,21 +2980,12 @@
         }
 
         @media (max-width: 968px) {
-            .browser-content {
-                grid-template-columns: 1fr;
-                min-height: auto;
+            .module-tabs {
+                gap: var(--spacing-2);
             }
-            .app-sidebar {
-                display: none;
-            }
-            .app-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .app-grid {
-                grid-template-columns: 1fr;
-            }
-            .app-main {
-                padding: var(--spacing-4);
+            .module-tab {
+                font-size: 0.65rem;
+                padding: 6px 12px;
             }
         }
 
@@ -3675,7 +3713,31 @@
                 </p>
             </div>
 
-            <div class="platform-mockup-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <!-- Module tab pills -->
+            <div class="module-tabs" data-aos="fade-up" data-aos-delay="80">
+                <button class="module-tab active" data-img="CoHort.png" data-label="Cohort Builder" onclick="switchModule(this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Cohort Builder
+                </button>
+                <button class="module-tab" data-img="Patex.png" data-label="Patient Explorer" onclick="switchModule(this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Patient Explorer
+                </button>
+                <button class="module-tab" data-img="Regulatory.png" data-label="Regulatory Intel" onclick="switchModule(this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Regulatory Intel
+                </button>
+                <button class="module-tab" data-img="KRAS.png" data-label="Knowledge Graph" onclick="switchModule(this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><line x1="8" y1="8" x2="11" y2="16"/><line x1="16" y1="8" x2="13" y2="16"/></svg>
+                    Knowledge Graph
+                </button>
+                <button class="module-tab" data-img="Trail_matcher.png" data-label="Trial Matcher" onclick="switchModule(this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Trial Matcher
+                </button>
+            </div>
+
+            <div class="platform-mockup-wrapper" data-aos="fade-up" data-aos-delay="160">
                 <div class="browser-frame">
                     <div class="browser-bar">
                         <div class="browser-dots"><span></span><span></span><span></span></div>
@@ -3684,221 +3746,23 @@
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
-                            amar-project-docxpanel.base44.app
+                            <span id="browser-label">Cohort Builder</span>
                         </div>
                     </div>
-
-                    <div class="browser-content">
-                        <!-- Sidebar -->
-                        <aside class="app-sidebar">
-                            <div class="app-logo">
-                                <img src="sc.png" alt="DocxPanel" onerror="this.style.display='none'">
-                                <span>DocxPanel</span>
-                            </div>
-                            <div class="app-nav-section">Intelligence</div>
-                            <nav class="app-nav">
-                                <div class="app-nav-item active">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                                    Dashboard
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                                    Literature Search
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><line x1="8" y1="8" x2="11" y2="16"/><line x1="16" y1="8" x2="13" y2="16"/></svg>
-                                    Knowledge Graph
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 18a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L15 8V2"/><line x1="9" y1="2" x2="15" y2="2"/></svg>
-                                    Trial Intelligence
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                                    Analytics
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                    Reports
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                    Regulatory
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11.5"/><circle cx="18" cy="18" r="3"/><path d="m22 22-2-2"/></svg>
-                                    Trial Matcher
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                                    Patient Explorer
-                                </div>
-                            </nav>
-                        </aside>
-
-                        <!-- Main app area -->
-                        <main class="app-main">
-                            <div class="app-topbar">
-                                <div class="app-breadcrumb">
-                                    <span class="app-breadcrumb-current">DASHBOARD</span>
-                                    <span class="app-breadcrumb-divider">/</span>
-                                    <span>Overview</span>
-                                </div>
-                                <div class="app-topbar-actions">
-                                    <span class="app-search">Quick search...</span>
-                                    <span class="app-notif">7</span>
-                                    <span class="app-user">Researcher</span>
-                                </div>
-                            </div>
-
-                            <div class="cohort-builder">
-                                <div class="cohort-builder-header">
-                                    <div class="cohort-builder-title">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                                        Cohort Builder
-                                        <span class="cohort-live-pill">LIVE</span>
-                                    </div>
-                                    <div class="cohort-tabs">
-                                        <button class="cohort-tab active">BUILDER</button>
-                                        <button class="cohort-tab">SAVED (10)</button>
-                                    </div>
-                                </div>
-
-                                <div class="cohort-body">
-                                    <!-- Criteria sidebar -->
-                                    <aside class="cohort-criteria">
-                                        <div class="cohort-criteria-label">ADD CRITERIA</div>
-                                        <div class="cohort-cat active">DEMOGRAPHICS</div>
-                                        <div class="cohort-cat">DIAGNOSIS</div>
-                                        <div class="cohort-cat">BIOMARKERS</div>
-                                        <div class="cohort-cat">LABS &amp; VITALS</div>
-                                        <div class="cohort-cat">TREATMENT</div>
-                                        <div class="cohort-cat">ENROLLMENT</div>
-
-                                        <div class="cohort-fields">
-                                            <div class="cohort-field">+ Age</div>
-                                            <div class="cohort-field">+ Sex</div>
-                                            <div class="cohort-field">+ State / UT</div>
-                                            <div class="cohort-field">+ Religion</div>
-                                            <div class="cohort-field">+ Caste Category</div>
-                                            <div class="cohort-field">+ Tobacco / Gutka Use</div>
-                                        </div>
-                                    </aside>
-
-                                    <!-- Builder workspace -->
-                                    <div class="cohort-workspace">
-                                        <div class="cohort-inputs">
-                                            <div class="cohort-input">Cohort name (required)...</div>
-                                            <div class="cohort-input">Short description...</div>
-                                        </div>
-
-                                        <div class="cohort-tags">
-                                            <span class="cohort-tag">Oncology</span>
-                                            <span class="cohort-tag">Cardiology</span>
-                                            <span class="cohort-tag">Neurology</span>
-                                            <span class="cohort-tag">Immunology</span>
-                                            <span class="cohort-tag">Rare Disease</span>
-                                            <span class="cohort-tag">Phase III</span>
-                                            <span class="cohort-tag">Pediatric</span>
-                                            <span class="cohort-tag">Diabetes</span>
-                                            <span class="cohort-tag">Tuberculosis</span>
-                                            <span class="cohort-tag cohort-tag--accent">ICMR</span>
-                                            <span class="cohort-tag cohort-tag--accent">CTRI</span>
-                                            <span class="cohort-tag">Govt Hospital</span>
-                                            <span class="cohort-tag">Rural Cohort</span>
-                                            <span class="cohort-tag">Urban Cohort</span>
-                                            <span class="cohort-tag cohort-tag--scheme">PMJAY</span>
-                                        </div>
-
-                                        <div class="cohort-rule">
-                                            <span class="cohort-incl">INCL</span>
-                                            <span class="cohort-rule-field">Select field...</span>
-                                            <span class="cohort-rule-op">is</span>
-                                            <span class="cohort-rule-value">Value...</span>
-                                            <span class="cohort-rule-x">×</span>
-                                        </div>
-
-                                        <div class="cohort-add-rule">+ Add blank rule</div>
-
-                                        <div class="cohort-notes">Researcher notes (optional)...</div>
-
-                                        <div class="cohort-footer">
-                                            <div class="cohort-criteria-summary">
-                                                <span class="cohort-criteria-summary-label">CRITERIA</span>
-                                                <span class="cohort-criteria-summary-value">none</span>
-                                            </div>
-                                            <div class="cohort-actions">
-                                                <button class="cohort-btn">▶ ESTIMATE</button>
-                                                <button class="cohort-btn">↓ CSV</button>
-                                                <button class="cohort-btn cohort-btn--primary">SAVE COHORT</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </main>
+                    <div class="browser-screenshot">
+                        <img id="platform-screenshot" src="CoHort.png" alt="DocxPanel Platform Screenshot" />
                     </div>
                 </div>
-
-                <!-- 5 Modules Grid -->
-                <div class="modules-grid">
-
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="0">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        </div>
-                        <div class="module-title">Cohort Builder</div>
-                        <p class="module-desc">Build patient cohorts with India-specific filters — PMJAY, ICMR, CTRI, Caste, State/UT. Estimate, export CSV, save for re-use.</p>
-                        <span class="module-meta">Live · 10 saved cohorts</span>
-                    </div>
-
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="80">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <div class="module-title">Patient Explorer</div>
-                        <p class="module-desc">De-identified patient timelines (DXP-IND-XXXXX). Radiology, labs, medications, genomics — with AI Comparative Analysis &amp; RadAI v2.1.</p>
-                        <span class="module-meta">HIPAA Safe Harbor · Audit-ready</span>
-                    </div>
-
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="160">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        </div>
-                        <div class="module-title">Regulatory Intel</div>
-                        <p class="module-desc">FDA, EMA &amp; global regulatory feed — approvals, label changes, safety signals, CRLs. AI Intelligence summaries on each action.</p>
-                        <span class="module-meta">FDA · EMA · Global</span>
-                    </div>
-
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="240">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><line x1="8" y1="8" x2="11" y2="16"/><line x1="16" y1="8" x2="13" y2="16"/></svg>
-                        </div>
-                        <div class="module-title">Knowledge Graph</div>
-                        <p class="module-desc">2.8B biomedical relations across genes, diseases, drugs. Interactive entity inspector with AI insights and PubMed evidence trails.</p>
-                        <span class="module-meta">2.8B relations indexed</span>
-                    </div>
-
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="320">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <div class="module-title">Trial Matcher</div>
-                        <p class="module-desc">Match cohorts to active trials across CTRI &amp; ClinicalTrials.gov. India site distribution map with eligibility analysis &amp; geographic gap detection.</p>
-                        <span class="module-meta">CTRI · ClinicalTrials.gov</span>
-                    </div>
-
-                </div>
+            </div>
 
                 <div class="platform-cta" data-aos="fade-up">
-                    <a href="https://amar-project-docxpanel.base44.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        Launch Platform
+                    <a href="#contact" class="btn btn-primary">
+                        Request Demo
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M7 17 17 7"/>
                             <path d="M7 7h10v10"/>
                         </svg>
                     </a>
-                    <span class="platform-cta-meta">Live at amar-project-docxpanel.base44.app</span>
                 </div>
             </div>
         </div>
@@ -4446,8 +4310,20 @@
             }
         });
 
-        // Modal Logic
-        // Modal Logic Removed
+        // Module tab screenshot switcher
+        function switchModule(btn) {
+            document.querySelectorAll('.module-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            const img = document.getElementById('platform-screenshot');
+            const label = document.getElementById('browser-label');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = btn.dataset.img;
+                label.textContent = btn.dataset.label;
+                img.onload = () => { img.style.opacity = '1'; };
+                img.style.opacity = '1';
+            }, 150);
+        }
 
     </script>
 </body>
