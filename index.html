@@ -2194,6 +2194,16 @@
             color: var(--color-text-primary);
         }
 
+        .app-nav-section {
+            font-family: var(--font-primary);
+            font-size: 0.6rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0 var(--spacing-3);
+            margin-bottom: var(--spacing-2);
+        }
+
         .app-nav {
             display: flex;
             flex-direction: column;
@@ -2452,6 +2462,454 @@
             background: linear-gradient(90deg, var(--color-brand-secondary), var(--color-brand-tertiary));
             border-radius: var(--radius-full);
             box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Cohort Builder mockup */
+        .app-breadcrumb {
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            color: var(--color-text-tertiary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .app-breadcrumb-current {
+            color: var(--color-text-primary);
+            font-weight: 700;
+        }
+
+        .app-breadcrumb-divider {
+            color: var(--color-text-tertiary);
+            opacity: 0.5;
+        }
+
+        .app-topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-family: var(--font-primary);
+            font-size: 0.7rem;
+        }
+
+        .app-search {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            padding: 6px var(--spacing-4);
+            border-radius: var(--radius-full);
+            color: var(--color-text-tertiary);
+            min-width: 180px;
+        }
+
+        .app-notif {
+            background: var(--color-brand-secondary);
+            color: var(--color-surface-base);
+            font-weight: 700;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+        }
+
+        .app-user {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            padding: 6px var(--spacing-3);
+            border-radius: var(--radius-full);
+            color: var(--color-brand-secondary);
+        }
+
+        .cohort-builder {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .cohort-builder-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-4) var(--spacing-6);
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        .cohort-builder-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .cohort-builder-title svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-brand-secondary);
+        }
+
+        .cohort-live-pill {
+            font-family: var(--font-primary);
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--color-brand-secondary);
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.08em;
+        }
+
+        .cohort-tabs {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .cohort-tab {
+            font-family: var(--font-primary);
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-default);
+            padding: 6px var(--spacing-4);
+            border-radius: var(--radius-base);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            cursor: default;
+        }
+
+        .cohort-tab.active {
+            background: var(--color-brand-secondary);
+            color: var(--color-surface-base);
+            border-color: var(--color-brand-secondary);
+            box-shadow: 0 0 14px rgba(0, 255, 136, 0.25);
+        }
+
+        .cohort-body {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            min-height: 400px;
+        }
+
+        .cohort-criteria {
+            border-right: 1px solid var(--color-border-subtle);
+            padding: var(--spacing-4);
+            background: var(--color-surface-base);
+        }
+
+        .cohort-criteria-label {
+            font-family: var(--font-primary);
+            font-size: 0.6rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: var(--spacing-2) var(--spacing-3);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .cohort-cat {
+            font-family: var(--font-primary);
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--color-text-tertiary);
+            padding: var(--spacing-2) var(--spacing-3);
+            border-radius: var(--radius-base);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border: 1px solid transparent;
+        }
+
+        .cohort-cat.active {
+            background: rgba(0, 255, 136, 0.06);
+            border-color: rgba(0, 255, 136, 0.2);
+            color: var(--color-brand-secondary);
+        }
+
+        .cohort-fields {
+            margin-top: var(--spacing-4);
+            padding-top: var(--spacing-4);
+            border-top: 1px solid var(--color-border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .cohort-field {
+            font-family: var(--font-secondary);
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+            padding: var(--spacing-2) var(--spacing-3);
+            border-radius: var(--radius-base);
+        }
+
+        .cohort-workspace {
+            padding: var(--spacing-5);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+            background: var(--color-surface-card);
+        }
+
+        .cohort-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3);
+        }
+
+        .cohort-input {
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-base);
+            padding: var(--spacing-3) var(--spacing-4);
+            font-family: var(--font-secondary);
+            font-size: 0.75rem;
+            color: var(--color-text-tertiary);
+        }
+
+        .cohort-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .cohort-tag {
+            font-family: var(--font-primary);
+            font-size: 0.62rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-default);
+            padding: 3px var(--spacing-2);
+            border-radius: var(--radius-base);
+        }
+
+        .cohort-tag--accent {
+            color: var(--color-brand-secondary);
+            border-color: rgba(0, 255, 136, 0.25);
+            background: rgba(0, 255, 136, 0.06);
+        }
+
+        .cohort-tag--scheme {
+            color: var(--color-status-warning);
+            border-color: rgba(255, 170, 0, 0.3);
+            background: rgba(255, 170, 0, 0.06);
+        }
+
+        .cohort-rule {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-base);
+            padding: var(--spacing-2) var(--spacing-3);
+            font-family: var(--font-primary);
+            font-size: 0.72rem;
+        }
+
+        .cohort-incl {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--color-brand-secondary);
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            padding: 3px 8px;
+            border-radius: var(--radius-base);
+        }
+
+        .cohort-rule-field, .cohort-rule-value {
+            flex: 1;
+            color: var(--color-text-tertiary);
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            padding: 5px var(--spacing-3);
+            border-radius: var(--radius-base);
+        }
+
+        .cohort-rule-op {
+            color: var(--color-text-secondary);
+            padding: 0 var(--spacing-2);
+        }
+
+        .cohort-rule-x {
+            color: var(--color-text-tertiary);
+            padding: 0 var(--spacing-1);
+            font-size: 0.9rem;
+        }
+
+        .cohort-add-rule {
+            font-family: var(--font-secondary);
+            font-size: 0.72rem;
+            color: var(--color-brand-tertiary);
+            padding: var(--spacing-1) 0;
+        }
+
+        .cohort-notes {
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-base);
+            padding: var(--spacing-4);
+            font-family: var(--font-secondary);
+            font-size: 0.72rem;
+            color: var(--color-text-tertiary);
+            min-height: 50px;
+            margin-top: var(--spacing-2);
+        }
+
+        .cohort-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-4);
+            border-top: 1px solid var(--color-border-subtle);
+            margin-top: var(--spacing-2);
+        }
+
+        .cohort-criteria-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .cohort-criteria-summary-label {
+            font-family: var(--font-primary);
+            font-size: 0.58rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .cohort-criteria-summary-value {
+            font-family: var(--font-secondary);
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+
+        .cohort-actions {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .cohort-btn {
+            font-family: var(--font-primary);
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-default);
+            padding: 6px var(--spacing-3);
+            border-radius: var(--radius-base);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            cursor: default;
+        }
+
+        .cohort-btn--primary {
+            color: var(--color-surface-base);
+            background: var(--color-brand-secondary);
+            border-color: var(--color-brand-secondary);
+            box-shadow: 0 0 14px rgba(0, 255, 136, 0.25);
+        }
+
+        /* Modules Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-12);
+        }
+
+        .module-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-5);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+            transition: border-color var(--duration-base), transform var(--duration-moderate);
+        }
+
+        .module-card:hover {
+            border-color: var(--color-brand-secondary);
+            transform: translateY(-4px);
+            box-shadow: 0 0 24px rgba(0, 255, 136, 0.08);
+        }
+
+        .module-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-base);
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-brand-secondary);
+        }
+
+        .module-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .module-title {
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .module-desc {
+            font-size: 0.78rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .module-meta {
+            font-family: var(--font-primary);
+            font-size: 0.6rem;
+            color: var(--color-brand-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: var(--spacing-2);
+            padding-top: var(--spacing-3);
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
+        @media (max-width: 1100px) {
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            .cohort-body {
+                grid-template-columns: 1fr;
+            }
+            .cohort-inputs {
+                grid-template-columns: 1fr;
+            }
+            .cohort-footer {
+                flex-direction: column;
+                gap: var(--spacing-3);
+                align-items: flex-start;
+            }
         }
 
         .platform-cta {
@@ -3237,30 +3695,43 @@
                                 <img src="sc.png" alt="DocxPanel" onerror="this.style.display='none'">
                                 <span>DocxPanel</span>
                             </div>
+                            <div class="app-nav-section">Intelligence</div>
                             <nav class="app-nav">
                                 <div class="app-nav-item active">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                                     Dashboard
                                 </div>
                                 <div class="app-nav-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                                    Literature Search
+                                </div>
+                                <div class="app-nav-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><line x1="8" y1="8" x2="11" y2="16"/><line x1="16" y1="8" x2="13" y2="16"/></svg>
+                                    Knowledge Graph
+                                </div>
+                                <div class="app-nav-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 18a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L15 8V2"/><line x1="9" y1="2" x2="15" y2="2"/></svg>
+                                    Trial Intelligence
+                                </div>
+                                <div class="app-nav-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                    Analytics
+                                </div>
+                                <div class="app-nav-item">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                    Documents
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                                    Pipelines
-                                </div>
-                                <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                                    Datasets
+                                    Reports
                                 </div>
                                 <div class="app-nav-item">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                    Compliance
+                                    Regulatory
                                 </div>
                                 <div class="app-nav-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                                    Settings
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11.5"/><circle cx="18" cy="18" r="3"/><path d="m22 22-2-2"/></svg>
+                                    Trial Matcher
+                                </div>
+                                <div class="app-nav-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    Patient Explorer
                                 </div>
                             </nav>
                         </aside>
@@ -3268,105 +3739,155 @@
                         <!-- Main app area -->
                         <main class="app-main">
                             <div class="app-topbar">
-                                <h3>Dashboard</h3>
-                                <span class="app-badge">All Systems Operational</span>
-                            </div>
-
-                            <div class="app-stats">
-                                <div class="app-stat">
-                                    <span class="app-stat-label">Documents Processed</span>
-                                    <span class="app-stat-value">19,432</span>
-                                    <span class="app-stat-delta">+12% this week</span>
+                                <div class="app-breadcrumb">
+                                    <span class="app-breadcrumb-current">DASHBOARD</span>
+                                    <span class="app-breadcrumb-divider">/</span>
+                                    <span>Overview</span>
                                 </div>
-                                <div class="app-stat">
-                                    <span class="app-stat-label">De-identified Records</span>
-                                    <span class="app-stat-value">2,107</span>
-                                    <span class="app-stat-delta">+8% this week</span>
-                                </div>
-                                <div class="app-stat">
-                                    <span class="app-stat-label">Active Pipelines</span>
-                                    <span class="app-stat-value">14</span>
-                                    <span class="app-stat-delta">3 running now</span>
-                                </div>
-                                <div class="app-stat">
-                                    <span class="app-stat-label">HIPAA Compliance</span>
-                                    <span class="app-stat-value">100%</span>
-                                    <span class="app-stat-delta">Audit-ready</span>
+                                <div class="app-topbar-actions">
+                                    <span class="app-search">Quick search...</span>
+                                    <span class="app-notif">7</span>
+                                    <span class="app-user">Researcher</span>
                                 </div>
                             </div>
 
-                            <div class="app-grid">
-                                <div class="app-panel">
-                                    <div class="app-panel-header">
-                                        Recent Documents
-                                        <span class="app-panel-action">View all →</span>
+                            <div class="cohort-builder">
+                                <div class="cohort-builder-header">
+                                    <div class="cohort-builder-title">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                        Cohort Builder
+                                        <span class="cohort-live-pill">LIVE</span>
                                     </div>
-                                    <table class="app-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Document</th>
-                                                <th>Type</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>radiology_report_2387.pdf</td>
-                                                <td>Imaging</td>
-                                                <td><span class="status-pill status-success">Processed</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>clinical_notes_412.docx</td>
-                                                <td>Clinical</td>
-                                                <td><span class="status-pill status-running">Extracting</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>lab_results_q4.csv</td>
-                                                <td>Lab</td>
-                                                <td><span class="status-pill status-success">Processed</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>discharge_summary.pdf</td>
-                                                <td>Clinical</td>
-                                                <td><span class="status-pill status-pending">Review</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>intake_form_set_88.json</td>
-                                                <td>Admin</td>
-                                                <td><span class="status-pill status-success">Processed</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="cohort-tabs">
+                                        <button class="cohort-tab active">BUILDER</button>
+                                        <button class="cohort-tab">SAVED (10)</button>
+                                    </div>
                                 </div>
 
-                                <div class="app-panel">
-                                    <div class="app-panel-header">Pipeline Status</div>
-                                    <div class="pipeline-list">
-                                        <div class="pipeline-item">
-                                            <div class="pipeline-name">Document Sourcing <span>100%</span></div>
-                                            <div class="pipeline-bar"><span style="width: 100%;"></span></div>
+                                <div class="cohort-body">
+                                    <!-- Criteria sidebar -->
+                                    <aside class="cohort-criteria">
+                                        <div class="cohort-criteria-label">ADD CRITERIA</div>
+                                        <div class="cohort-cat active">DEMOGRAPHICS</div>
+                                        <div class="cohort-cat">DIAGNOSIS</div>
+                                        <div class="cohort-cat">BIOMARKERS</div>
+                                        <div class="cohort-cat">LABS &amp; VITALS</div>
+                                        <div class="cohort-cat">TREATMENT</div>
+                                        <div class="cohort-cat">ENROLLMENT</div>
+
+                                        <div class="cohort-fields">
+                                            <div class="cohort-field">+ Age</div>
+                                            <div class="cohort-field">+ Sex</div>
+                                            <div class="cohort-field">+ State / UT</div>
+                                            <div class="cohort-field">+ Religion</div>
+                                            <div class="cohort-field">+ Caste Category</div>
+                                            <div class="cohort-field">+ Tobacco / Gutka Use</div>
                                         </div>
-                                        <div class="pipeline-item">
-                                            <div class="pipeline-name">PHI De-identification <span>87%</span></div>
-                                            <div class="pipeline-bar"><span style="width: 87%;"></span></div>
+                                    </aside>
+
+                                    <!-- Builder workspace -->
+                                    <div class="cohort-workspace">
+                                        <div class="cohort-inputs">
+                                            <div class="cohort-input">Cohort name (required)...</div>
+                                            <div class="cohort-input">Short description...</div>
                                         </div>
-                                        <div class="pipeline-item">
-                                            <div class="pipeline-name">NER &amp; Annotation <span>64%</span></div>
-                                            <div class="pipeline-bar"><span style="width: 64%;"></span></div>
+
+                                        <div class="cohort-tags">
+                                            <span class="cohort-tag">Oncology</span>
+                                            <span class="cohort-tag">Cardiology</span>
+                                            <span class="cohort-tag">Neurology</span>
+                                            <span class="cohort-tag">Immunology</span>
+                                            <span class="cohort-tag">Rare Disease</span>
+                                            <span class="cohort-tag">Phase III</span>
+                                            <span class="cohort-tag">Pediatric</span>
+                                            <span class="cohort-tag">Diabetes</span>
+                                            <span class="cohort-tag">Tuberculosis</span>
+                                            <span class="cohort-tag cohort-tag--accent">ICMR</span>
+                                            <span class="cohort-tag cohort-tag--accent">CTRI</span>
+                                            <span class="cohort-tag">Govt Hospital</span>
+                                            <span class="cohort-tag">Rural Cohort</span>
+                                            <span class="cohort-tag">Urban Cohort</span>
+                                            <span class="cohort-tag cohort-tag--scheme">PMJAY</span>
                                         </div>
-                                        <div class="pipeline-item">
-                                            <div class="pipeline-name">Expert Review <span>42%</span></div>
-                                            <div class="pipeline-bar"><span style="width: 42%;"></span></div>
+
+                                        <div class="cohort-rule">
+                                            <span class="cohort-incl">INCL</span>
+                                            <span class="cohort-rule-field">Select field...</span>
+                                            <span class="cohort-rule-op">is</span>
+                                            <span class="cohort-rule-value">Value...</span>
+                                            <span class="cohort-rule-x">×</span>
                                         </div>
-                                        <div class="pipeline-item">
-                                            <div class="pipeline-name">AI-Ready Delivery <span>Queued</span></div>
-                                            <div class="pipeline-bar"><span style="width: 12%;"></span></div>
+
+                                        <div class="cohort-add-rule">+ Add blank rule</div>
+
+                                        <div class="cohort-notes">Researcher notes (optional)...</div>
+
+                                        <div class="cohort-footer">
+                                            <div class="cohort-criteria-summary">
+                                                <span class="cohort-criteria-summary-label">CRITERIA</span>
+                                                <span class="cohort-criteria-summary-value">none</span>
+                                            </div>
+                                            <div class="cohort-actions">
+                                                <button class="cohort-btn">▶ ESTIMATE</button>
+                                                <button class="cohort-btn">↓ CSV</button>
+                                                <button class="cohort-btn cohort-btn--primary">SAVE COHORT</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </main>
                     </div>
+                </div>
+
+                <!-- 5 Modules Grid -->
+                <div class="modules-grid">
+
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="module-title">Cohort Builder</div>
+                        <p class="module-desc">Build patient cohorts with India-specific filters — PMJAY, ICMR, CTRI, Caste, State/UT. Estimate, export CSV, save for re-use.</p>
+                        <span class="module-meta">Live · 10 saved cohorts</span>
+                    </div>
+
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="80">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="module-title">Patient Explorer</div>
+                        <p class="module-desc">De-identified patient timelines (DXP-IND-XXXXX). Radiology, labs, medications, genomics — with AI Comparative Analysis &amp; RadAI v2.1.</p>
+                        <span class="module-meta">HIPAA Safe Harbor · Audit-ready</span>
+                    </div>
+
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="160">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="module-title">Regulatory Intel</div>
+                        <p class="module-desc">FDA, EMA &amp; global regulatory feed — approvals, label changes, safety signals, CRLs. AI Intelligence summaries on each action.</p>
+                        <span class="module-meta">FDA · EMA · Global</span>
+                    </div>
+
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="240">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><line x1="8" y1="8" x2="11" y2="16"/><line x1="16" y1="8" x2="13" y2="16"/></svg>
+                        </div>
+                        <div class="module-title">Knowledge Graph</div>
+                        <p class="module-desc">2.8B biomedical relations across genes, diseases, drugs. Interactive entity inspector with AI insights and PubMed evidence trails.</p>
+                        <span class="module-meta">2.8B relations indexed</span>
+                    </div>
+
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="320">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="module-title">Trial Matcher</div>
+                        <p class="module-desc">Match cohorts to active trials across CTRI &amp; ClinicalTrials.gov. India site distribution map with eligibility analysis &amp; geographic gap detection.</p>
+                        <span class="module-meta">CTRI · ClinicalTrials.gov</span>
+                    </div>
+
                 </div>
 
                 <div class="platform-cta" data-aos="fade-up">
