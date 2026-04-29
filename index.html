@@ -1723,6 +1723,290 @@
             color: var(--color-surface-base);
         }
 
+        /* ===== LINKEDIN SECTION ===== */
+        .linkedin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: var(--spacing-12);
+            align-items: start;
+            margin-top: var(--spacing-12);
+        }
+
+        .linkedin-profile-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: sticky;
+            top: calc(80px + var(--spacing-8));
+        }
+
+        .li-card-banner {
+            height: 72px;
+            background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .li-card-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.12) 0%, rgba(0, 212, 255, 0.10) 100%);
+        }
+
+        .li-card-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-brand-secondary), var(--color-brand-tertiary), transparent);
+            opacity: 0.4;
+        }
+
+        .li-card-header {
+            padding: 0 var(--spacing-6) var(--spacing-4);
+        }
+
+        .li-logo-container {
+            width: 68px;
+            height: 68px;
+            border-radius: var(--radius-md);
+            background: var(--color-surface-base);
+            border: 3px solid var(--color-surface-card);
+            margin-top: -34px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .li-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 6px;
+        }
+
+        .li-card-body {
+            padding: var(--spacing-2) var(--spacing-6) var(--spacing-6);
+        }
+
+        .li-company-name {
+            font-family: var(--font-display);
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .li-company-tagline {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-4);
+            line-height: 1.5;
+        }
+
+        .li-follow-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-5);
+            background: none;
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: var(--radius-full);
+            color: var(--color-text-secondary);
+            font-family: var(--font-primary);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            transition: all var(--duration-base) var(--easing-smooth);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .li-follow-link:hover {
+            border-color: var(--color-brand-secondary);
+            color: var(--color-brand-secondary);
+            box-shadow: var(--shadow-glow-cyan);
+        }
+
+        .li-follow-link svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .li-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+            padding: var(--spacing-4) 0;
+            border-top: 1px solid var(--color-border-subtle);
+            border-bottom: 1px solid var(--color-border-subtle);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .li-detail-item {
+            display: flex;
+            align-items: baseline;
+            gap: var(--spacing-3);
+        }
+
+        .li-detail-label {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            min-width: 80px;
+            flex-shrink: 0;
+        }
+
+        .li-detail-value {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+
+        .li-detail-value a {
+            color: var(--color-text-link);
+            text-decoration: none;
+            transition: opacity var(--duration-base);
+        }
+
+        .li-detail-value a:hover {
+            opacity: 0.8;
+        }
+
+        .li-specialties-label {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .li-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+        }
+
+        .li-specialty-tag {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-brand-secondary);
+            background: rgba(0, 255, 136, 0.07);
+            border: 1px solid rgba(0, 255, 136, 0.18);
+            border-radius: var(--radius-full);
+            padding: 3px var(--spacing-3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        /* Highlights */
+        .linkedin-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .li-highlight-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-6);
+            display: flex;
+            gap: var(--spacing-5);
+            align-items: flex-start;
+            transition: border-color var(--duration-base) var(--easing-smooth), transform var(--duration-moderate) var(--easing-smooth);
+        }
+
+        .li-highlight-card:hover {
+            border-color: var(--color-border-emphasis);
+            transform: translateX(4px);
+        }
+
+        .li-highlight-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-base);
+            background: var(--color-surface-elevated);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--color-brand-secondary);
+            border: 1px solid var(--color-border-default);
+        }
+
+        .li-highlight-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .li-highlight-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .li-highlight-title {
+            font-family: var(--font-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .li-highlight-text {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+        }
+
+        .li-highlight-text strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        .li-highlight-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            margin-top: var(--spacing-3);
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .li-highlight-meta::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--color-brand-secondary);
+            opacity: 0.6;
+        }
+
+        @media (max-width: 968px) {
+            .linkedin-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .linkedin-profile-card {
+                position: static;
+            }
+        }
+
         /* ===== MODAL ===== */
         .modal {
             display: none;
@@ -2157,10 +2441,170 @@
         </div>
     </section>
 
+    <!-- LinkedIn Section -->
+    <section class="section linkedin-section" id="linkedin">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-label">[005] ON LINKEDIN</div>
+                <h2 class="section-title">Follow Our Journey</h2>
+                <p class="section-description">
+                    Stay connected with DocxPanel's latest milestones, research, and updates in healthcare AI.
+                </p>
+            </div>
+
+            <div class="linkedin-grid">
+
+                <!-- Company Profile Card -->
+                <div class="linkedin-profile-card" data-aos="fade-right">
+                    <div class="li-card-banner"></div>
+                    <div class="li-card-header">
+                        <div class="li-logo-container">
+                            <img src="sc.png" alt="DocxPanel" class="li-logo">
+                        </div>
+                    </div>
+                    <div class="li-card-body">
+                        <h3 class="li-company-name">DocxPanel</h3>
+                        <p class="li-company-tagline">A Complete Data Ecosystem, Streamlined for You</p>
+
+                        <a href="https://www.linkedin.com/company/docxpanel/" target="_blank" rel="noopener noreferrer" class="li-follow-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            Follow on LinkedIn
+                        </a>
+
+                        <div class="li-details">
+                            <div class="li-detail-item">
+                                <span class="li-detail-label">Industry</span>
+                                <span class="li-detail-value">Healthcare Technology · AI &amp; Machine Learning</span>
+                            </div>
+                            <div class="li-detail-item">
+                                <span class="li-detail-label">Type</span>
+                                <span class="li-detail-value">Privately Held</span>
+                            </div>
+                            <div class="li-detail-item">
+                                <span class="li-detail-label">Location</span>
+                                <span class="li-detail-value">Vijayawada, Andhra Pradesh, India</span>
+                            </div>
+                            <div class="li-detail-item">
+                                <span class="li-detail-label">Website</span>
+                                <span class="li-detail-value"><a href="https://docxpanel.com" target="_blank" rel="noopener noreferrer">docxpanel.com</a></span>
+                            </div>
+                        </div>
+
+                        <div class="li-specialties-label">Specialties</div>
+                        <div class="li-specialties">
+                            <span class="li-specialty-tag">Medical Data Sourcing</span>
+                            <span class="li-specialty-tag">De-identification</span>
+                            <span class="li-specialty-tag">Healthcare AI</span>
+                            <span class="li-specialty-tag">HIPAA Compliance</span>
+                            <span class="li-specialty-tag">NLP &amp; NER</span>
+                            <span class="li-specialty-tag">Clinical Trials</span>
+                            <span class="li-specialty-tag">RWE Analytics</span>
+                            <span class="li-specialty-tag">Data Organization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlights Feed -->
+                <div class="linkedin-highlights">
+
+                    <!-- Highlight 1: Award -->
+                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="0">
+                        <div class="li-highlight-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6"></circle>
+                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path>
+                            </svg>
+                        </div>
+                        <div class="li-highlight-content">
+                            <div class="li-highlight-title">Bravo Edison Award</div>
+                            <p class="li-highlight-text">
+                                Recognized for <strong>Healthcare API quality excellence</strong> — our NER, NLP, and AI/ML-integrated HAPI platform was adopted across multiple international clinical research ecosystems.
+                            </p>
+                            <span class="li-highlight-meta">Award · Healthcare API Excellence</span>
+                        </div>
+                    </div>
+
+                    <!-- Highlight 2: Research & Publication -->
+                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="80">
+                        <div class="li-highlight-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                                <polyline points="10 2 10 22"></polyline>
+                            </svg>
+                        </div>
+                        <div class="li-highlight-content">
+                            <div class="li-highlight-title">Published Research · ASCO 2024</div>
+                            <p class="li-highlight-text">
+                                Published in the <strong>Journal of Clinical Oncology</strong> and presented at <strong>ASCO 2024 in Chicago</strong> on deep learning applications in metastatic breast cancer detection.
+                            </p>
+                            <span class="li-highlight-meta">Publication · Clinical Oncology · Chicago</span>
+                        </div>
+                    </div>
+
+                    <!-- Highlight 3: Global Partnerships -->
+                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="160">
+                        <div class="li-highlight-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <div class="li-highlight-content">
+                            <div class="li-highlight-title">Global Pharma Partnerships</div>
+                            <p class="li-highlight-text">
+                                High-priority AI research partnerships with <strong>Pfizer, Janssen, BMS, Merck, Novartis, Takeda, Thermo Fisher,</strong> and <strong>GE Healthcare</strong> — deployed within Mayo Clinic, Duke Health, Banner Health, and Mercy Hospitals.
+                            </p>
+                            <span class="li-highlight-meta">Partnerships · Pharma &amp; Health Systems</span>
+                        </div>
+                    </div>
+
+                    <!-- Highlight 4: Siemens Healthineers -->
+                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="240">
+                        <div class="li-highlight-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <div class="li-highlight-content">
+                            <div class="li-highlight-title">Clinical AI at Siemens Healthineers</div>
+                            <p class="li-highlight-text">
+                                Our Co-founder &amp; CFO — the <strong>youngest radiologist in the Siemens world</strong> — reviewed 2,000+ MRI brain cases from Princeton and Yale, annotating CT tumors, spinal fractures, and lymph node stations to train diagnostic AI.
+                            </p>
+                            <span class="li-highlight-meta">Radiology · AI Training Data · Siemens</span>
+                        </div>
+                    </div>
+
+                    <!-- Highlight 5: FDA-approved algorithms -->
+                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="320">
+                        <div class="li-highlight-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="m9 12 2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="li-highlight-content">
+                            <div class="li-highlight-title">FDA-Approved ECG Algorithms</div>
+                            <p class="li-highlight-text">
+                                Contributions to <strong>FDA-approved ECG and early detection algorithms</strong> — the highest-stakes validation in healthcare, proving our AI work operates within regulatory reality and directly impacts patient outcomes.
+                            </p>
+                            <span class="li-highlight-meta">Regulatory · FDA · ECG Early Detection</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="section cta-section" id="contact">
         <div class="cta-container">
-            <div class="section-label" data-aos="fade-up">[005] SCHEDULE DEMO</div>
+            <div class="section-label" data-aos="fade-up">[006] SCHEDULE DEMO</div>
             <h2 class="cta-title" data-aos="fade-up" data-aos-delay="100">
                 Ready to Power Your AI Project?
             </h2>
