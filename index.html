@@ -1908,93 +1908,161 @@
             white-space: nowrap;
         }
 
-        /* Highlights */
+        /* Post Feed */
         .linkedin-highlights {
             display: flex;
             flex-direction: column;
             gap: var(--spacing-4);
         }
 
-        .li-highlight-card {
+        .li-post-card {
             background: var(--color-surface-card);
             border: 1px solid var(--color-border-default);
             border-radius: var(--radius-md);
             padding: var(--spacing-6);
-            display: flex;
-            gap: var(--spacing-5);
-            align-items: flex-start;
             transition: border-color var(--duration-base) var(--easing-smooth), transform var(--duration-moderate) var(--easing-smooth);
         }
 
-        .li-highlight-card:hover {
+        .li-post-card:hover {
             border-color: var(--color-border-emphasis);
             transform: translateX(4px);
         }
 
-        .li-highlight-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: var(--radius-base);
-            background: var(--color-surface-elevated);
+        .li-post-author {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: var(--spacing-3);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .li-post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
             flex-shrink: 0;
-            color: var(--color-brand-secondary);
             border: 1px solid var(--color-border-default);
+            background: var(--color-surface-elevated);
         }
 
-        .li-highlight-icon svg {
-            width: 20px;
-            height: 20px;
+        .li-post-avatar--company {
+            border-radius: var(--radius-base);
         }
 
-        .li-highlight-content {
+        .li-post-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .li-post-avatar--company img {
+            object-fit: contain;
+            padding: 4px;
+        }
+
+        .li-post-author-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
             min-width: 0;
         }
 
-        .li-highlight-title {
+        .li-post-name {
             font-family: var(--font-primary);
             font-size: 0.8rem;
             font-weight: 700;
             color: var(--color-text-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: var(--spacing-2);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .li-highlight-text {
-            font-size: 0.875rem;
-            color: var(--color-text-secondary);
-            line-height: 1.65;
+        .li-post-role {
+            font-size: 0.72rem;
+            color: var(--color-text-tertiary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .li-highlight-text strong {
-            color: var(--color-text-primary);
-            font-weight: 600;
-        }
-
-        .li-highlight-meta {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-2);
-            margin-top: var(--spacing-3);
+        .li-post-meta {
             font-family: var(--font-primary);
             font-size: 0.65rem;
             color: var(--color-text-tertiary);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
         }
 
-        .li-highlight-meta::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--color-brand-secondary);
-            opacity: 0.6;
+        .li-post-link-icon {
+            flex-shrink: 0;
+            color: var(--color-text-tertiary);
+            transition: color var(--duration-base);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .li-post-link-icon:hover {
+            color: var(--color-brand-secondary);
+        }
+
+        .li-post-link-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .li-post-headline {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            line-height: 1.35;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .li-post-excerpt {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+            margin-bottom: var(--spacing-4);
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .li-post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .li-post-tags span {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-brand-tertiary);
+        }
+
+        .li-post-engagement {
+            display: flex;
+            gap: var(--spacing-4);
+            padding-top: var(--spacing-3);
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
+        .li-post-engagement span {
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .li-post-engagement span:first-child {
+            color: var(--color-brand-secondary);
+            font-weight: 700;
         }
 
         @media (max-width: 968px) {
@@ -2472,13 +2540,13 @@
                                 <rect x="2" y="9" width="4" height="12"></rect>
                                 <circle cx="4" cy="4" r="2"></circle>
                             </svg>
-                            Follow on LinkedIn
+                            Follow · 105 followers
                         </a>
 
                         <div class="li-details">
                             <div class="li-detail-item">
                                 <span class="li-detail-label">Industry</span>
-                                <span class="li-detail-value">Healthcare Technology · AI &amp; Machine Learning</span>
+                                <span class="li-detail-value">Technology, Information and Internet</span>
                             </div>
                             <div class="li-detail-item">
                                 <span class="li-detail-label">Type</span>
@@ -2508,91 +2576,142 @@
                     </div>
                 </div>
 
-                <!-- Highlights Feed -->
+                <!-- Live Post Feed from LinkedIn -->
                 <div class="linkedin-highlights">
 
-                    <!-- Highlight 1: Award -->
-                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="0">
-                        <div class="li-highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="8" r="6"></circle>
-                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path>
-                            </svg>
+                    <!-- Post 1: India's AI Healthcare Moment — highest engagement (127 reactions) -->
+                    <div class="li-post-card" data-aos="fade-left" data-aos-delay="0">
+                        <div class="li-post-author">
+                            <div class="li-post-avatar li-post-avatar--company">
+                                <img src="sc.png" alt="Docxpanel" loading="lazy">
+                            </div>
+                            <div class="li-post-author-info">
+                                <span class="li-post-name">Docxpanel</span>
+                                <span class="li-post-role">Technology, Information and Internet</span>
+                                <span class="li-post-meta">3 weeks ago &nbsp;·&nbsp; Company</span>
+                            </div>
+                            <a href="https://www.linkedin.com/company/docxpanel/posts/" target="_blank" rel="noopener noreferrer" class="li-post-link-icon" aria-label="View on LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
                         </div>
-                        <div class="li-highlight-content">
-                            <div class="li-highlight-title">Bravo Edison Award</div>
-                            <p class="li-highlight-text">
-                                Recognized for <strong>Healthcare API quality excellence</strong> — our NER, NLP, and AI/ML-integrated HAPI platform was adopted across multiple international clinical research ecosystems.
-                            </p>
-                            <span class="li-highlight-meta">Award · Healthcare API Excellence</span>
+                        <h4 class="li-post-headline">India's AI in Healthcare Moment: Are We Scaling Innovation — or Just Pilots?</h4>
+                        <p class="li-post-excerpt">India is seeing an explosion of AI in healthcare. EMRs exist, but data is often inconsistent, incomplete, or siloed. Clinical workflows remain largely manual despite digital layers. The gap isn't innovation — it's execution at scale. DocxPanel is not another AI tool. It's the layer that makes AI actually work: turning scattered clinical documents into structured, AI-ready data and enabling seamless integration into real-world workflows.</p>
+                        <div class="li-post-tags">
+                            <span>#AIinHealthcare</span>&nbsp;
+                            <span>#DigitalHealthIndia</span>&nbsp;
+                            <span>#HealthTech</span>&nbsp;
+                            <span>#ABDM</span>
                         </div>
-                    </div>
-
-                    <!-- Highlight 2: Research & Publication -->
-                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="80">
-                        <div class="li-highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-                                <polyline points="10 2 10 22"></polyline>
-                            </svg>
-                        </div>
-                        <div class="li-highlight-content">
-                            <div class="li-highlight-title">Published Research · ASCO 2024</div>
-                            <p class="li-highlight-text">
-                                Published in the <strong>Journal of Clinical Oncology</strong> and presented at <strong>ASCO 2024 in Chicago</strong> on deep learning applications in metastatic breast cancer detection.
-                            </p>
-                            <span class="li-highlight-meta">Publication · Clinical Oncology · Chicago</span>
-                        </div>
-                    </div>
-
-                    <!-- Highlight 3: Global Partnerships -->
-                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="160">
-                        <div class="li-highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                            </svg>
-                        </div>
-                        <div class="li-highlight-content">
-                            <div class="li-highlight-title">Global Pharma Partnerships</div>
-                            <p class="li-highlight-text">
-                                High-priority AI research partnerships with <strong>Pfizer, Janssen, BMS, Merck, Novartis, Takeda, Thermo Fisher,</strong> and <strong>GE Healthcare</strong> — deployed within Mayo Clinic, Duke Health, Banner Health, and Mercy Hospitals.
-                            </p>
-                            <span class="li-highlight-meta">Partnerships · Pharma &amp; Health Systems</span>
+                        <div class="li-post-engagement">
+                            <span>127 reactions</span>
+                            <span>20 comments</span>
+                            <span>7 reposts</span>
                         </div>
                     </div>
 
-                    <!-- Highlight 4: Siemens Healthineers -->
-                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="240">
-                        <div class="li-highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
+                    <!-- Post 2: Healthcare 2050 — Sharmeen Tole CMO (112 reactions) -->
+                    <div class="li-post-card" data-aos="fade-left" data-aos-delay="80">
+                        <div class="li-post-author">
+                            <div class="li-post-avatar">
+                                <img src="sharmeen_cmo.png" alt="Sharmeen Tole" loading="lazy">
+                            </div>
+                            <div class="li-post-author-info">
+                                <span class="li-post-name">Sharmeen Tole</span>
+                                <span class="li-post-role">Chief Marketing Officer · DocxPanel</span>
+                                <span class="li-post-meta">4 days ago</span>
+                            </div>
+                            <a href="https://www.linkedin.com/company/docxpanel/posts/" target="_blank" rel="noopener noreferrer" class="li-post-link-icon" aria-label="View on LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
                         </div>
-                        <div class="li-highlight-content">
-                            <div class="li-highlight-title">Clinical AI at Siemens Healthineers</div>
-                            <p class="li-highlight-text">
-                                Our Co-founder &amp; CFO — the <strong>youngest radiologist in the Siemens world</strong> — reviewed 2,000+ MRI brain cases from Princeton and Yale, annotating CT tumors, spinal fractures, and lymph node stations to train diagnostic AI.
-                            </p>
-                            <span class="li-highlight-meta">Radiology · AI Training Data · Siemens</span>
+                        <h4 class="li-post-headline">Healthcare in 2050 Won't Just Be About Hospitals — It Will Be About People, Prevention, and Personalization</h4>
+                        <p class="li-post-excerpt">Care moves beyond hospital walls. Precision health tailored to every individual. Continuous monitoring through smart wearables. AI assisting clinicians for faster, smarter decisions. Patients owning and controlling their health data. The real shift? From treating illness to maintaining wellness. From episodic care to lifelong health partnerships. From system-centered to patient-centered care.</p>
+                        <div class="li-post-tags">
+                            <span>#HealthcareInnovation</span>&nbsp;
+                            <span>#AIInHealthcare</span>&nbsp;
+                            <span>#PatientCentric</span>&nbsp;
+                            <span>#HealthTech</span>
+                        </div>
+                        <div class="li-post-engagement">
+                            <span>112 reactions</span>
+                            <span>20 comments</span>
+                            <span>4 reposts</span>
                         </div>
                     </div>
 
-                    <!-- Highlight 5: FDA-approved algorithms -->
-                    <div class="li-highlight-card" data-aos="fade-left" data-aos-delay="320">
-                        <div class="li-highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <path d="m9 12 2 2 4-4"></path>
-                            </svg>
+                    <!-- Post 3: AI Governance (110 reactions) -->
+                    <div class="li-post-card" data-aos="fade-left" data-aos-delay="160">
+                        <div class="li-post-author">
+                            <div class="li-post-avatar">
+                                <img src="ceo2.png" alt="Dr. Sai Ashrit Bandlamudi" loading="lazy">
+                            </div>
+                            <div class="li-post-author-info">
+                                <span class="li-post-name">Dr. Sai Ashrit Bandlamudi</span>
+                                <span class="li-post-role">CEO &amp; Founder · DocxPanel</span>
+                                <span class="li-post-meta">3 days ago</span>
+                            </div>
+                            <a href="https://www.linkedin.com/company/docxpanel/posts/" target="_blank" rel="noopener noreferrer" class="li-post-link-icon" aria-label="View on LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
                         </div>
-                        <div class="li-highlight-content">
-                            <div class="li-highlight-title">FDA-Approved ECG Algorithms</div>
-                            <p class="li-highlight-text">
-                                Contributions to <strong>FDA-approved ECG and early detection algorithms</strong> — the highest-stakes validation in healthcare, proving our AI work operates within regulatory reality and directly impacts patient outcomes.
-                            </p>
-                            <span class="li-highlight-meta">Regulatory · FDA · ECG Early Detection</span>
+                        <h4 class="li-post-headline">AI Without Governance Isn't Innovation. It's Risk — at Scale.</h4>
+                        <p class="li-post-excerpt">AI agents in healthcare are no longer just assistants — they access sensitive patient data, trigger clinical workflows, and act across systems, often without human intervention. Regulations like India's DPDP Act, GDPR, and HIPAA aren't asking "Do you have AI?" They're asking whether you can prove why a decision was made, trace where the data came from, and enforce consent in real-time. DocxPanel builds the governed data layer so AI is accountable, compliant, and trustworthy.</p>
+                        <div class="li-post-tags">
+                            <span>#AIinHealthcare</span>&nbsp;
+                            <span>#DataGovernance</span>&nbsp;
+                            <span>#HIPAA</span>&nbsp;
+                            <span>#DPDP</span>
+                        </div>
+                        <div class="li-post-engagement">
+                            <span>110 reactions</span>
+                            <span>30 comments</span>
+                            <span>9 reposts</span>
+                        </div>
+                    </div>
+
+                    <!-- Post 4: Agentic AI (83 reactions) — Dr. Sai Ashrit -->
+                    <div class="li-post-card" data-aos="fade-left" data-aos-delay="240">
+                        <div class="li-post-author">
+                            <div class="li-post-avatar">
+                                <img src="ceo2.png" alt="Dr. Sai Ashrit Bandlamudi" loading="lazy">
+                            </div>
+                            <div class="li-post-author-info">
+                                <span class="li-post-name">Dr. Sai Ashrit Bandlamudi</span>
+                                <span class="li-post-role">CEO &amp; Founder · DocxPanel</span>
+                                <span class="li-post-meta">1 week ago</span>
+                            </div>
+                            <a href="https://www.linkedin.com/company/docxpanel/posts/" target="_blank" rel="noopener noreferrer" class="li-post-link-icon" aria-label="View on LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                        <h4 class="li-post-headline">A Nurse Works an 8-Hour Shift. 3 Hours on Care. 5 Hours on Paperwork. We've Been Solving the Wrong Problem.</h4>
+                        <p class="li-post-excerpt">Everyone is talking about AI agents in healthcare. Almost no one is talking about controlling them. The shift isn't about better chatbots — it's about Agentic AI: systems given a goal that independently plan steps, use the right tools, correct course, and deliver outcomes. Before any agentic system can act, it needs clean, structured, reliable data. Clinical notes, intake forms, reports, care plans. That's the unglamorous foundation no one talks about — and exactly where most healthcare AI initiatives quietly break down. That's the layer DocxPanel solves.</p>
+                        <div class="li-post-tags">
+                            <span>#AgenticAI</span>&nbsp;
+                            <span>#HealthcareAI</span>&nbsp;
+                            <span>#ClinicalDocumentation</span>&nbsp;
+                            <span>#DigitalHealth</span>
+                        </div>
+                        <div class="li-post-engagement">
+                            <span>83 reactions</span>
+                            <span>12 comments</span>
+                            <span>6 reposts</span>
                         </div>
                     </div>
 
