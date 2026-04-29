@@ -1,0 +1,2708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocxPanel - A Complete Data Ecosystem, Streamlined for You</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ===== CSS CUSTOM PROPERTIES (Design System) ===== */
+        :root {
+            /* Colors - Brand */
+            --color-brand-primary: #FFFFFF;
+            --color-brand-secondary: #00FF88;
+            --color-brand-tertiary: #00D4FF;
+
+            /* Colors - Surface */
+            --color-surface-base: #000000;
+            --color-surface-subtle: #0A0A0A;
+            --color-surface-card: #111111;
+            --color-surface-elevated: #1A1A1A;
+            --color-surface-overlay: rgba(0, 0, 0, 0.85);
+
+            /* Colors - Text */
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: #A0A0A0;
+            --color-text-tertiary: #666666;
+            --color-text-accent: #FFFFFF;
+            --color-text-link: #00FF88;
+
+            /* Colors - Border */
+            --color-border-default: #222222;
+            --color-border-subtle: #1A1A1A;
+            --color-border-emphasis: #333333;
+            --color-border-accent: #FFFFFF;
+
+            /* Colors - Status */
+            --color-status-success: #00FF88;
+            --color-status-error: #FF4444;
+            --color-status-warning: #FFAA00;
+            --color-status-info: #FFFFFF;
+
+            /* Typography */
+            --font-primary: 'JetBrains Mono', 'Fira Code', monospace;
+            --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Space Grotesk', 'Inter', sans-serif;
+
+            /* Spacing (8pt grid) */
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            --spacing-20: 5rem;
+            --spacing-24: 6rem;
+
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-base: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-glow-sm: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.15);
+            --shadow-glow-md: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2), 0 0 45px rgba(255, 255, 255, 0.1);
+            --shadow-glow-cyan: 0 0 15px rgba(0, 255, 136, 0.4), 0 0 30px rgba(0, 255, 136, 0.2), 0 0 45px rgba(0, 255, 136, 0.1);
+            --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.7), 0 2px 4px -2px rgba(0, 0, 0, 0.7);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -4px rgba(0, 0, 0, 0.7);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-base: 200ms;
+            --duration-moderate: 300ms;
+            --duration-slow: 500ms;
+            --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Light Theme Overrides */
+        [data-theme="light"] {
+            --color-brand-primary: #000000;
+            --color-brand-secondary: #00A85A;
+            --color-surface-base: #F9F9F9;
+            --color-surface-subtle: #F5F5F5;
+            --color-surface-card: #F9F9F9;
+            --color-surface-elevated: #F0F0F0;
+            --color-surface-overlay: rgba(255, 255, 255, 0.85);
+
+            --color-text-primary: #111111;
+            --color-text-secondary: #555555;
+            --color-text-tertiary: #888888;
+            --color-text-accent: #000000;
+            --color-text-link: #00A85A;
+
+            --color-status-success: #00A85A;
+
+            --color-border-default: #E0E0E0;
+            --color-border-subtle: #EEEEEE;
+            --color-border-emphasis: #CCCCCC;
+
+            --shadow-glow-sm: 0 0 10px rgba(0, 0, 0, 0.1);
+            --shadow-glow-md: 0 0 20px rgba(0, 0, 0, 0.1);
+            --shadow-glow-cyan: 0 0 15px rgba(0, 255, 136, 0.2);
+            --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Light mode logo inversion */
+        [data-theme="light"] .navbar-logo img {
+            filter: invert(1);
+        }
+
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            background-color: var(--color-surface-base);
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image:
+                linear-gradient(var(--color-border-subtle) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, var(--color-border-subtle) 1.5px, transparent 1.5px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+            /* Increased visibility */
+            z-index: -1;
+            will-change: transform;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Dark Theme Explicit Override (Helps Safari) */
+        [data-theme="dark"] {
+            --color-surface-base: #000000;
+            --color-border-subtle: #222222;
+            /* Slightly brighter for better grid visibility */
+            --color-text-primary: #FFFFFF;
+        }
+
+        /* Fix for Safari background gradient update on theme change */
+        [data-theme="light"] body::before,
+        [data-theme="dark"] body::before {
+            background-image:
+                linear-gradient(var(--color-border-subtle) 1px, transparent 1px),
+                linear-gradient(90deg, var(--color-border-subtle) 1px, transparent 1px);
+        }
+
+        /* Force background repaint on theme change */
+        [data-theme="light"] html,
+        [data-theme="dark"] html {
+            background-color: var(--color-surface-base);
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: var(--spacing-6);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-6);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: var(--spacing-4);
+        }
+
+        p {
+            margin-bottom: var(--spacing-4);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--color-text-link);
+            text-decoration: none;
+            transition: color var(--duration-base) var(--easing-smooth);
+        }
+
+        @media (hover: hover) {
+            a:hover {
+                color: var(--color-brand-secondary);
+            }
+        }
+
+        /* Monospace text styling */
+        .mono {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Accent text with glow */
+        .text-accent {
+            color: var(--color-brand-primary);
+            text-shadow: var(--shadow-glow-sm);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: var(--spacing-6) var(--spacing-8);
+            background: var(--color-surface-overlay);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border-subtle);
+            transition: all var(--duration-moderate) var(--easing-smooth);
+        }
+
+        .navbar.scrolled {
+            padding: var(--spacing-4) var(--spacing-8);
+            background: var(--color-surface-base);
+            border-bottom: 1px solid var(--color-border-accent);
+            box-shadow: var(--shadow-glow-sm);
+        }
+
+        .navbar-container {
+            max-width: 1536px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-family: var(--font-primary);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .navbar-logo img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(var(--shadow-glow-sm));
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: var(--spacing-8);
+            list-style: none;
+        }
+
+        .navbar-menu a {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding: var(--spacing-2) 0;
+            transition: color var(--duration-base) var(--easing-smooth);
+        }
+
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-brand-secondary);
+            box-shadow: var(--shadow-glow-cyan);
+            transition: width var(--duration-moderate) var(--easing-smooth);
+        }
+
+        @media (hover: hover) {
+            .navbar-menu a:hover {
+                color: var(--color-brand-secondary);
+            }
+
+            .navbar-menu a:hover::after {
+                width: 100%;
+            }
+        }
+
+        .navbar-cta {
+            display: flex;
+            gap: var(--spacing-4);
+        }
+
+        /* Hide mobile CTA on larger screens */
+        .mobile-cta {
+            display: none;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--spacing-2);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-brand-primary);
+            transition: all var(--duration-base) var(--easing-smooth);
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1.5rem);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-3) var(--spacing-8);
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            transition: all var(--duration-moderate) var(--easing-smooth);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width var(--duration-slow) var(--easing-smooth),
+                height var(--duration-slow) var(--easing-smooth);
+        }
+
+        @media (hover: hover) {
+            .btn:hover::before {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        .btn-primary {
+            background: var(--color-brand-primary);
+            color: var(--color-surface-base);
+            box-shadow: var(--shadow-glow-md);
+        }
+
+        @media (hover: hover) {
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-border-emphasis);
+        }
+
+        @media (hover: hover) {
+            .btn-secondary:hover {
+                border-color: var(--color-brand-secondary);
+                color: var(--color-brand-secondary);
+                box-shadow: var(--shadow-glow-cyan);
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: var(--spacing-8);
+            overflow: hidden;
+        }
+
+        /* Terminal-style background effect */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    transparent 50%);
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: var(--spacing-2) var(--spacing-4);
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-accent);
+            border-radius: var(--radius-full);
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-6);
+            box-shadow: var(--shadow-glow-sm);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-6);
+            background: linear-gradient(135deg,
+                    var(--color-brand-primary) 0%,
+                    var(--color-brand-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--color-text-secondary);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-10);
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--spacing-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            padding: var(--spacing-24) var(--spacing-8);
+            position: relative;
+        }
+
+        .section#services {
+            min-height: 100vh;
+            height: 100vh;
+            padding: var(--spacing-8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-16);
+        }
+
+        .section-label {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== SERVICES SECTION - PROBLEM SLIDER ===== */
+        .problem-section {
+            display: flex;
+            gap: var(--spacing-12);
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .problem-content {
+            flex: 0 0 450px;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .problem-label {
+            display: inline-block;
+            padding: var(--spacing-2) var(--spacing-3);
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-status-error);
+            color: var(--color-status-error);
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-6);
+        }
+
+        .problem-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-4);
+            color: var(--color-text-primary);
+        }
+
+        .problem-subtitle {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-6);
+            color: var(--color-text-primary);
+        }
+
+        .problem-description {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .problem-visual {
+            flex: 1;
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .problem-frame {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 500px;
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            overflow: visible;
+        }
+
+        .frame-corners {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .frame-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--color-border-emphasis);
+        }
+
+        .frame-corner.tl {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .frame-corner.tr {
+            top: 0;
+            right: 0;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .frame-corner.bl {
+            bottom: 0;
+            left: 0;
+            border-right: none;
+            border-top: none;
+        }
+
+        .frame-corner.br {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+
+        .services-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .services-track {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-8);
+            display: none;
+            flex-direction: column;
+            gap: var(--spacing-4);
+            transition: all var(--duration-moderate) var(--easing-smooth);
+            width: 100%;
+            max-height: 100%;
+            overflow-y: auto;
+        }
+
+        .service-card.active {
+            display: flex;
+            opacity: 1;
+            border-color: var(--color-border-emphasis);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-4);
+            transition: all var(--duration-moderate) var(--easing-smooth);
+        }
+
+        .service-card.active .service-icon {
+            border-color: var(--color-brand-secondary);
+            box-shadow: var(--shadow-glow-cyan);
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--color-brand-secondary);
+        }
+
+        .service-title {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-3);
+            color: var(--color-text-primary);
+        }
+
+        .service-description {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        /* Progress Indicators */
+        .progress-indicators {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+            margin-top: var(--spacing-8);
+        }
+
+        .progress-bar {
+            width: 60px;
+            height: 2px;
+            background: var(--color-border-emphasis);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all var(--duration-base) var(--easing-smooth);
+        }
+
+        @media (hover: hover) {
+            .progress-bar:hover {
+                background: var(--color-border-accent);
+            }
+        }
+
+        .progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--color-brand-secondary);
+            box-shadow: var(--shadow-glow-cyan);
+            width: 0;
+            transition: width 0.3s ease-out;
+        }
+
+        .progress-bar.active .progress-fill {
+            width: 100%;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-8);
+            margin-top: var(--spacing-12);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: var(--spacing-6);
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            transition: all var(--duration-moderate) var(--easing-smooth);
+        }
+
+        @media (hover: hover) {
+            .stat-card:hover {
+                border-color: var(--color-border-accent);
+                box-shadow: var(--shadow-glow-sm);
+            }
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-brand-primary);
+            text-shadow: var(--shadow-glow-md);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .stat-label {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== VALUES SECTION ===== */
+        .values-section {
+            background: var(--color-surface-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-8);
+            margin-top: var(--spacing-12);
+        }
+
+        .value-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--duration-moderate) var(--easing-smooth);
+        }
+
+        @media (hover: hover) {
+            .value-card:hover {
+                border-color: var(--color-border-emphasis);
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-lg);
+            }
+        }
+
+        .value-icon {
+            width: 100%;
+            height: 160px;
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: var(--spacing-4);
+            padding: var(--spacing-6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-chart {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: var(--spacing-2);
+            padding: 0 var(--spacing-3);
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: var(--color-brand-secondary);
+            border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+            min-height: 0;
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .value-terminal {
+            width: 100%;
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-3);
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            color: var(--color-brand-secondary);
+            line-height: 1.4;
+        }
+
+        .terminal-line {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease-out;
+        }
+
+        .value-progress {
+            width: 100%;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-2);
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 8px;
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill-animated {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-brand-tertiary), var(--color-brand-secondary));
+            border-radius: var(--radius-full);
+            width: 0;
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            position: relative;
+        }
+
+        .progress-fill-animated::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .progress-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            color: var(--color-brand-secondary);
+            font-size: 0.75rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--color-brand-secondary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+            }
+
+            50% {
+                opacity: 0.6;
+                box-shadow: 0 0 0 4px rgba(0, 255, 136, 0);
+            }
+        }
+
+        .value-chat {
+            background: var(--color-surface-base);
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-4);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+        }
+
+        .chat-bubble {
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-2) var(--spacing-3);
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease-out;
+        }
+
+        .chat-bubble.reply {
+            background: var(--color-brand-secondary);
+            color: var(--color-surface-base);
+            align-self: flex-end;
+            max-width: 80%;
+        }
+
+        .value-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: var(--spacing-2);
+            color: var(--color-text-primary);
+        }
+
+        .value-subtitle {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: var(--color-surface-card);
+            border-top: 1px solid var(--color-border-default);
+            border-bottom: 1px solid var(--color-border-default);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%,
+                    rgba(255, 255, 255, 0.05) 0%,
+                    transparent 50%);
+        }
+
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-8);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--color-surface-base);
+            border-top: 1px solid var(--color-border-default);
+            padding: var(--spacing-16) var(--spacing-8) var(--spacing-8);
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-12);
+            margin-bottom: var(--spacing-12);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-brand-secondary);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+        }
+
+        .footer-links a {
+            color: var(--color-text-secondary);
+            font-size: 0.9375rem;
+            transition: color var(--duration-base) var(--easing-smooth);
+        }
+
+        @media (hover: hover) {
+            .footer-links a:hover {
+                color: var(--color-brand-secondary);
+            }
+        }
+
+        .footer-links a:focus {
+            color: var(--color-text-secondary);
+            outline: none;
+        }
+
+        .footer-description {
+            color: var(--color-text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-8);
+            border-top: 1px solid var(--color-border-subtle);
+            flex-wrap: wrap;
+            gap: var(--spacing-4);
+        }
+
+        .footer-copyright {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            color: var(--color-text-tertiary);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: var(--spacing-6);
+            list-style: none;
+        }
+
+        .footer-legal a {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            color: var(--color-text-tertiary);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .navbar-menu {
+                display: flex;
+                /* Changed from none to flex to support transitions */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-surface-base);
+                border-top: 1px solid var(--color-border-default);
+                flex-direction: column;
+                padding: var(--spacing-6);
+                gap: var(--spacing-4);
+                z-index: 100;
+
+                /* Animation initial state */
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                pointer-events: none;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            /* Staggered animation for menu items */
+            .navbar-menu li {
+                opacity: 0;
+                transform: translateX(-10px);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .navbar-menu.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            /* Stagger delays */
+            .navbar-menu.active li:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+
+            .navbar-menu.active li:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+
+            .navbar-menu.active li:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+
+            .navbar-menu.active li:nth-child(4) {
+                transition-delay: 0.25s;
+            }
+
+            .navbar-menu.active li:nth-child(5) {
+                transition-delay: 0.3s;
+            }
+
+            .navbar-menu.active li:nth-child(6) {
+                transition-delay: 0.35s;
+            }
+
+            /* Horizontal scroll indicators for tablet and mobile (<= 1024px) */
+            .progress-indicators {
+                flex-direction: row;
+                width: 100%;
+                gap: var(--spacing-2);
+                margin-top: var(--spacing-6);
+            }
+
+            .progress-bar {
+                width: auto;
+                flex: 1;
+                height: 4px;
+            }
+
+            .navbar-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navbar-cta {
+                display: none;
+            }
+
+            .mobile-cta {
+                display: block;
+                margin-top: var(--spacing-4);
+            }
+
+            .mobile-cta .btn {
+                width: 100%;
+                justify-content: center;
+                color: var(--color-surface-base);
+                box-sizing: border-box;
+                padding-left: var(--spacing-4);
+                padding-right: var(--spacing-4);
+                max-width: 100%;
+            }
+
+            .hero {
+                padding: var(--spacing-16) var(--spacing-6);
+                min-height: 90vh;
+            }
+
+            .section {
+                padding: var(--spacing-16) var(--spacing-6);
+            }
+
+            .section#services {
+                height: auto;
+                min-height: 100vh;
+                padding: var(--spacing-12) var(--spacing-4);
+            }
+
+            .problem-section {
+                flex-direction: column;
+                padding: var(--spacing-4);
+                gap: var(--spacing-8);
+            }
+
+            .problem-content {
+                flex: 1;
+                max-width: 100%;
+            }
+
+            .problem-visual {
+                height: 450px;
+                width: 100%;
+            }
+
+            .problem-frame {
+                height: 100%;
+                max-width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-4);
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-6);
+            }
+
+            .value-card {
+                padding: var(--spacing-6);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-6);
+            }
+
+            .section-header {
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-description {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+
+
+            /* CTA section visibility fix */
+            .cta-section {
+                padding: var(--spacing-12) var(--spacing-4);
+            }
+
+            .cta-section .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-section .btn {
+                width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-icon {
+                height: 140px;
+            }
+
+            .value-chart {
+                height: 60px;
+            }
+
+            .value-terminal {
+                font-size: 0.65rem;
+                padding: var(--spacing-2);
+            }
+
+            .value-title {
+                font-size: 1.25rem;
+            }
+
+            .chat-bubble {
+                font-size: 0.7rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-8);
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-4);
+            }
+
+            .footer-legal {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .section-description {
+                font-size: 1rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .problem-title {
+                font-size: 2rem;
+            }
+
+            .problem-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .service-title {
+                font-size: 0.875rem;
+            }
+
+            .service-description {
+                font-size: 0.8rem;
+            }
+
+            .cta-title {
+                font-size: 1.75rem;
+            }
+
+            .cta-description {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 100vh;
+                padding: var(--spacing-12) var(--spacing-4);
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .hero-label {
+                font-size: 0.65rem;
+                padding: var(--spacing-1) var(--spacing-3);
+            }
+
+            .btn {
+                padding: var(--spacing-3) var(--spacing-6);
+                font-size: 0.875rem;
+            }
+
+            .navbar-logo {
+                font-size: 1rem;
+            }
+
+            .navbar-logo img {
+                height: 32px;
+            }
+
+            .section {
+                padding: var(--spacing-12) var(--spacing-4);
+            }
+
+            .section-label {
+                font-size: 0.65rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-description {
+                font-size: 0.9rem;
+            }
+
+            .problem-section {
+                padding: var(--spacing-3);
+            }
+
+            .problem-title {
+                font-size: 1.75rem;
+            }
+
+            .problem-subtitle {
+                font-size: 1rem;
+            }
+
+            .problem-description {
+                font-size: 0.875rem;
+            }
+
+            .problem-frame {
+                padding: var(--spacing-4);
+            }
+
+            .service-card {
+                padding: var(--spacing-6);
+            }
+
+            .service-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .service-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .progress-bar {
+                width: 50px;
+                height: 2px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-4);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+
+            .value-card {
+                padding: var(--spacing-4);
+            }
+
+            .value-icon {
+                height: 120px;
+                padding: var(--spacing-4);
+            }
+
+            .value-chart {
+                height: 50px;
+            }
+
+            .value-terminal {
+                font-size: 0.6rem;
+                padding: var(--spacing-2);
+            }
+
+            .value-title {
+                font-size: 1.125rem;
+            }
+
+            .value-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .progress-label {
+                font-size: 0.65rem;
+            }
+
+            .progress-track {
+                height: 6px;
+            }
+
+            .chat-bubble {
+                font-size: 0.65rem;
+                padding: var(--spacing-1) var(--spacing-2);
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-description {
+                font-size: 0.9rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-section h4 {
+                font-size: 1rem;
+            }
+
+            .footer-links {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .btn {
+                min-height: 48px;
+                padding: var(--spacing-4) var(--spacing-8);
+            }
+
+            .navbar-menu a {
+                padding: var(--spacing-3) 0;
+                font-size: 1rem;
+            }
+
+            .service-card {
+                padding: var(--spacing-8);
+            }
+
+            .progress-bar {
+                height: 4px;
+                cursor: pointer;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding: var(--spacing-8) var(--spacing-6);
+            }
+
+            .section#services {
+                min-height: auto;
+                height: auto;
+            }
+
+            .problem-visual {
+                height: 350px;
+            }
+        }
+
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-surface-base);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-border-emphasis);
+            border-radius: var(--radius-full);
+        }
+
+        @media (hover: hover) {
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--color-brand-secondary);
+                box-shadow: var(--shadow-glow-cyan);
+            }
+        }
+
+        /* ===== SELECTION ===== */
+        ::selection {
+            background: var(--color-brand-secondary);
+            color: var(--color-surface-base);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-surface-overlay);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity var(--duration-moderate) var(--easing-smooth);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 500px;
+            padding: var(--spacing-10);
+            position: relative;
+            box-shadow: var(--shadow-md);
+            transform: translateY(20px);
+            transition: transform var(--duration-moderate) var(--easing-smooth);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-6);
+            right: var(--spacing-6);
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: color var(--duration-base);
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--color-brand-secondary);
+        }
+
+        .modal-title {
+            margin-bottom: var(--spacing-2);
+            font-size: 1.75rem;
+            color: var(--color-text-primary);
+        }
+
+        .modal-subtitle {
+            margin-bottom: var(--spacing-8);
+            color: var(--color-text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-2);
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--spacing-4);
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-base);
+            color: var(--color-text-primary);
+            font-family: var(--font-secondary);
+            transition: border-color var(--duration-base);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-brand-secondary);
+            box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.1);
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            justify-content: center;
+            margin-top: var(--spacing-4);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <img src="sc.png" alt="DocxPanel Logo" id="logo">
+                <span>DocxPanel</span>
+            </a>
+
+            <ul class="navbar-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="mailto:hr@docxpanel.com">Contact</a></li>
+            </ul>
+
+            <div class="navbar-cta">
+            </div>
+
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme"
+                    style="background:none; border:none; cursor:pointer; padding:8px; display:flex; align-items:center; justify-content:center;">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                        stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        style="display:none; color:var(--color-text-primary);">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                        stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        style="display:block; color:var(--color-text-primary);">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-label" data-aos="fade-down">
+                <span class="mono">Lets build together</span>
+            </div>
+
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                A Complete Data Ecosystem, Streamlined for You
+            </h1>
+
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Access millions of de-identified medical studies. We're building the data layer that will power the
+                future of healthcare AI.
+            </p>
+
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                <a href="#services" class="btn btn-primary">Explore Services</a>
+                <a href="#platform" class="btn btn-secondary">View Platform</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-label">[002] OUR SOLUTION</div>
+            </div>
+
+            <div class="problem-section">
+                <div class="problem-content" data-aos="fade-right">
+                    <h2 class="problem-title">A Complete Data Ecosystem</h2>
+                    <h3 class="problem-subtitle">Streamlined for You</h3>
+                    <p class="problem-description">
+                        organized, and ready to power your AI models.
+                    </p>
+
+
+
+                    <div class="progress-indicators">
+                        <div class="progress-bar active" data-index="0">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-bar" data-index="1">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-bar" data-index="2">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-bar" data-index="3">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-bar" data-index="4">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-visual" data-aos="fade-left">
+                    <div class="problem-frame">
+                        <div class="frame-corners">
+                            <div class="frame-corner tl"></div>
+                            <div class="frame-corner tr"></div>
+                            <div class="frame-corner bl"></div>
+                            <div class="frame-corner br"></div>
+                        </div>
+
+                        <div class="services-slider" id="servicesSlider">
+                            <div class="services-track" id="servicesTrack">
+                                <!-- Service 1: Sourcing -->
+                                <div class="service-card active" data-index="0" data-service-id="sourcing">
+                                    <div class="service-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="m21 21-4.35-4.35" />
+                                            <path d="M11 8a3 3 0 0 0-3 3" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="service-title">DATA SOURCING</h3>
+                                    <p class="service-description">
+                                        We're constantly looking for new data partners with hard-to-access or in-demand
+                                        datasets to add to the millions we already have.
+                                    </p>
+                                </div>
+
+                                <!-- Service 2: De-identification -->
+                                <div class="service-card" data-index="1" data-service-id="deid">
+                                    <div class="service-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="service-title">DE-IDENTIFICATION</h3>
+                                    <p class="service-description">
+                                        We use industry-leading de-identification techniques to thoroughly and reliably
+                                        remove all protected health information (PHI) from our data.
+                                    </p>
+                                </div>
+
+                                <!-- Service 3: Organization -->
+                                <div class="service-card" data-index="2" data-service-id="organization">
+                                    <div class="service-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="3" width="7" height="7" />
+                                            <rect x="14" y="3" width="7" height="7" />
+                                            <rect x="14" y="14" width="7" height="7" />
+                                            <rect x="3" y="14" width="7" height="7" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="service-title">DATA ORGANIZATION</h3>
+                                    <p class="service-description">
+                                        We ingest and curate millions of studies into our Atlas platform, enabling AI
+                                        developers to quickly and easily find the data they need.
+                                    </p>
+                                </div>
+
+                                <!-- Service 4: Delivery -->
+                                <div class="service-card" data-index="3" data-service-id="delivery">
+                                    <div class="service-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M5 12h14" />
+                                            <path d="m12 5 7 7-7 7" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="service-title">FAST DELIVERY</h3>
+                                    <p class="service-description">
+                                        Once customers have selected their dataset on our self-service platform, we make
+                                        it available for download in as little as 48 hours.
+                                    </p>
+                                </div>
+
+                                <!-- Service 5: Expert Review -->
+                                <div class="service-card" data-index="4" data-service-id="expert">
+                                    <div class="service-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                            <path d="m9 12 2 2 4-4" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="service-title">EXPERT REVIEW</h3>
+                                    <p class="service-description">
+                                        Experts manually validate automated results to ensure the highest quality and
+                                        compliance standards before delivery.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section" id="platform" style="background: var(--color-surface-subtle);">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-label">[003] BY THE NUMBERS</div>
+                <h2 class="section-title">Powering Healthcare AI</h2>
+                <p class="section-description">
+                    Trusted by leading AI developers and healthcare organizations worldwide.
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-number">19k+</div>
+                    <div class="stat-label">Studies Available</div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number">2k</div>
+                    <div class="stat-label">Studies Delivered</div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number">100k</div>
+                    <div class="stat-label">AI Customers</div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number">48hrs</div>
+                    <div class="stat-label">Delivery Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values-section" id="values">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-label">[004] OUR VALUES</div>
+                <h2 class="section-title">How We Work</h2>
+                <p class="section-description">
+                    Our principles drive everything we do, from Data delivery to client partnerships.
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <!-- Value 1: Outcome Driven -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="value-icon">
+                        <div class="value-chart">
+                            <div class="chart-bar" data-height="60"></div>
+                            <div class="chart-bar" data-height="75"></div>
+                            <div class="chart-bar" data-height="50"></div>
+                            <div class="chart-bar" data-height="85"></div>
+                            <div class="chart-bar" data-height="65"></div>
+                            <div class="chart-bar" data-height="95"></div>
+                            <div class="chart-bar" data-height="100"></div>
+                        </div>
+                    </div>
+                    <h3 class="value-title">Outcome Driven</h3>
+                    <p class="value-subtitle">Results, not decks.</p>
+                </div>
+
+                <!-- Value 2: Execution Led -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-icon">
+                        <div class="value-terminal">
+                            <div class="terminal-line">> aws s3 sync --encrypted AES256</div>
+                            <div class="terminal-line">> hipaa-compliance --verify</div>
+                            <div class="terminal-line" style="color: var(--color-brand-secondary);">✓ PHI data
+                                de-identified...</div>
+                            <div class="terminal-line" style="color: var(--color-brand-secondary);">✓ HIPAA compliant
+                                (verified)</div>
+                        </div>
+                    </div>
+                    <h3 class="value-title">Execution Led</h3>
+                    <p class="value-subtitle">Builders, not advisors.</p>
+                </div>
+
+                <!-- Value 3: Built For Speed -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-icon">
+                        <div class="value-progress">
+                            <div class="progress-label">
+                                <span>SPRINT_VELOCITY</span>
+                                <span class="velocity-value">0%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill-animated" data-progress="100"></div>
+                            </div>
+                        </div>
+                        <div class="progress-status">
+                            <span class="status-dot"></span>
+                            <span>ACCELERATING</span>
+                        </div>
+                    </div>
+                    <h3 class="value-title">Built For Speed</h3>
+                    <p class="value-subtitle">Weeks, not quarters.</p>
+                </div>
+
+                <!-- Value 4: Boutique -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-icon">
+                        <div class="value-chat">
+                            <div class="chat-bubble">Can we get this by next month?</div>
+                            <div class="chat-bubble reply">You can get it this week.</div>
+                        </div>
+                    </div>
+                    <h3 class="value-title">Boutique</h3>
+                    <p class="value-subtitle">Senior attention only.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="contact">
+        <div class="cta-container">
+            <div class="section-label" data-aos="fade-up">[005] SCHEDULE DEMO</div>
+            <h2 class="cta-title" data-aos="fade-up" data-aos-delay="100">
+                Ready to Power Your AI Project?
+            </h2>
+            <p class="cta-description" data-aos="fade-up" data-aos-delay="200">
+                Get instant access to millions of de-identified medical studies.
+            </p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                <a href="mailto:hr@docxpanel.com" class="btn btn-primary">Schedule Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Modal Removed -->
+
+
+    <!-- Footer -->
+    <footer class="footer" id="about">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>DocxPanel</h4>
+                    <p class="footer-description">
+                        We're building the data layer that will power the future of healthcare. DocxPanel provides
+                        secure, compliant access to millions of de-identified medical studies.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services" data-target-service="sourcing">Data Sourcing</a></li>
+                        <li><a href="#services" data-target-service="deid">De-identification</a></li>
+                        <li><a href="#services" data-target-service="organization">Organization</a></li>
+                        <li><a href="#services" data-target-service="delivery">Delivery</a></li>
+                        <li><a href="#services" data-target-service="expert">Expert Review</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="mailto:hr@docxpanel.com">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Location</h4>
+                    <p class="footer-description">
+                        Vijayawada, Andhra Pradesh IN
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2026 DocxPanel. All rights reserved.
+                </div>
+                <ul class="footer-legal">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">HIPAA Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('.navbar-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Services slider with scroll and swipe functionality
+        const servicesSection = document.getElementById('services');
+        const servicesSlider = document.getElementById('servicesSlider');
+        const servicesTrack = document.getElementById('servicesTrack');
+        const serviceCards = document.querySelectorAll('.service-card');
+        const progressBars = document.querySelectorAll('.progress-bar');
+        let currentIndex = 0;
+        let scrollTimeout;
+        let isScrolling = false;
+        let manualNavigation = false; // flag to indicate navigation from footer link
+
+        function updateSlider(index) {
+            if (index < 0 || index >= serviceCards.length) return;
+
+            currentIndex = index;
+
+            // Update active states
+            serviceCards.forEach((card, i) => {
+                card.classList.toggle('active', i === currentIndex);
+            });
+
+            progressBars.forEach((bar, i) => {
+                bar.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        // Wheel scroll handler on entire services section
+        if (servicesSection) {
+            // Check if services section is in viewport
+            function isServicesSectionInView() {
+                const rect = servicesSection.getBoundingClientRect();
+                return rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
+            }
+
+            let allowNormalScroll = false;
+            let wasInView = false;
+            let isComingFromOtherSection = false;
+
+
+            // Reset to first indicator when entering from top, unless triggered by manual navigation
+            const checkSectionEntry = () => {
+                const inView = isServicesSectionInView();
+                const rect = servicesSection.getBoundingClientRect();
+
+                // If entering services section from top (scrolling down) and not a manual navigation
+                if (inView && !wasInView && rect.top < window.innerHeight / 2 && !manualNavigation) {
+                    currentIndex = 0;
+                    updateSlider(0);
+                    isComingFromOtherSection = true;
+                    // Reset flag after transitions complete
+                    setTimeout(() => { isComingFromOtherSection = false; }, 1500);
+                }
+
+
+
+                wasInView = inView;
+            };
+
+            window.addEventListener('scroll', checkSectionEntry);
+
+            const wheelHandler = (e) => {
+                if (!isServicesSectionInView()) return;
+
+                // Allow normal scroll if flag is set
+                if (allowNormalScroll) return;
+
+                e.preventDefault();
+
+                if (isScrolling) return;
+
+                // Use longer timings if coming from other section
+                const scrollDelay = isComingFromOtherSection ? 50 : 27;
+                const transitionLock = isComingFromOtherSection ? 500 : 281;
+                const sectionTransition = isComingFromOtherSection ? 1000 : 750;
+
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    if (e.deltaY > 0) {
+                        // Scrolling down
+                        if (currentIndex < serviceCards.length - 1) {
+                            isScrolling = true;
+                            updateSlider(currentIndex + 1);
+                            setTimeout(() => { isScrolling = false; }, transitionLock);
+                        } else {
+                            // At final indicator, allow normal scroll to next section
+                            allowNormalScroll = true;
+                            const nextSection = document.getElementById('platform');
+                            if (nextSection) {
+                                nextSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            setTimeout(() => { allowNormalScroll = false; }, sectionTransition);
+                        }
+                    } else if (e.deltaY < 0) {
+                        // Scrolling up
+                        if (currentIndex > 0) {
+                            isScrolling = true;
+                            updateSlider(currentIndex - 1);
+                            setTimeout(() => { isScrolling = false; }, transitionLock);
+                        } else {
+                            // At first indicator, allow normal scroll to previous section
+                            allowNormalScroll = true;
+                            const heroSection = document.querySelector('.hero');
+                            if (heroSection) {
+                                heroSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            setTimeout(() => { allowNormalScroll = false; }, sectionTransition);
+                        }
+                    }
+                }, scrollDelay);
+            };
+
+            window.addEventListener('wheel', wheelHandler, { passive: false });
+
+            // Touch swipe handler on section
+            let touchStartY = 0;
+            let touchEndY = 0;
+
+            servicesSection.addEventListener('touchstart', (e) => {
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            servicesSection.addEventListener('touchend', (e) => {
+                touchEndY = e.changedTouches[0].screenY;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartY - touchEndY;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe up
+                        if (currentIndex < serviceCards.length - 1) {
+                            updateSlider(currentIndex + 1);
+                        } else {
+                            // Go to next section
+                            const nextSection = document.getElementById('platform');
+                            if (nextSection) {
+                                nextSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    } else if (diff < 0 && currentIndex > 0) {
+                        // Swipe down
+                        updateSlider(currentIndex - 1);
+                    }
+                }
+            }
+        }
+
+        // Progress bar click handler
+        progressBars.forEach((bar) => {
+            bar.addEventListener('click', () => {
+                const index = parseInt(bar.getAttribute('data-index'));
+                updateSlider(index);
+            });
+        });
+
+        // Add glow effect on hover for cards
+        const cards = document.querySelectorAll('.service-card, .stat-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Convert logo to use neon glow effect
+
+        // Add cursor glow effect
+        // Add cursor glow effect (only for devices with a mouse)
+        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            const cursor = document.createElement('div');
+            cursor.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+                pointer-events: none;
+                z-index: 9999;
+                transition: transform 0.1s ease;
+            `;
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top = e.clientY - 10 + 'px';
+            });
+        }
+
+        // Animate numbers in stats
+        const animateNumbers = () => {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = stat.textContent;
+                const isPlus = target.includes('+');
+                const isSuffixHrs = target.includes('hrs');
+                const isSuffixK = target.toLowerCase().includes('k');
+                const isSuffixM = target.includes('M');
+
+                // Cleanup non-numeric except decimal
+                const numStr = target.replace(/[^0-9.]/g, '');
+                const num = parseFloat(numStr);
+
+                if (!isNaN(num)) {
+                    let current = 0;
+                    const increment = num / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= num) {
+                            current = num;
+                            clearInterval(timer);
+                        }
+
+                        let suffix = '';
+                        if (isSuffixHrs) suffix = 'hrs';
+                        else if (isSuffixM) suffix = 'M+';
+                        else if (isSuffixK) suffix = 'k' + (isPlus ? '+' : '');
+                        else if (isPlus) suffix = '+';
+
+                        stat.textContent = Math.floor(current) + suffix;
+                    }, 30);
+                }
+            });
+        };
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.querySelector('.sun-icon');
+        const moonIcon = document.querySelector('.moon-icon');
+
+        // Check saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            if (newTheme === 'light') {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            } else {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+        });
+
+        // Trigger animation when stats section is in view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Values section animations
+        const valuesObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+
+                    // Animate chart bars
+                    const chartBars = card.querySelectorAll('.chart-bar');
+                    chartBars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            const height = bar.getAttribute('data-height');
+                            bar.style.height = height + '%';
+                        }, index * 100);
+                    });
+
+                    // Animate terminal lines
+                    const terminalLines = card.querySelectorAll('.terminal-line');
+                    terminalLines.forEach((line, index) => {
+                        setTimeout(() => {
+                            line.style.opacity = '1';
+                            line.style.transform = 'translateX(0)';
+                        }, index * 200);
+                    });
+
+                    // Animate progress bar
+                    const progressFill = card.querySelector('.progress-fill-animated');
+                    const velocityValue = card.querySelector('.velocity-value');
+                    if (progressFill) {
+                        setTimeout(() => {
+                            const progress = progressFill.getAttribute('data-progress');
+                            progressFill.style.width = progress + '%';
+
+                            // Animate velocity value
+                            if (velocityValue) {
+                                let current = 0;
+                                const target = parseInt(progress);
+                                const increment = target / 60;
+                                const timer = setInterval(() => {
+                                    current += increment;
+                                    if (current >= target) {
+                                        current = target;
+                                        clearInterval(timer);
+                                    }
+                                    velocityValue.textContent = Math.floor(current) + '%';
+                                }, 30);
+                            }
+                        }, 200);
+                    }
+
+                    // Animate chat bubbles
+                    const chatBubbles = card.querySelectorAll('.chat-bubble');
+                    chatBubbles.forEach((bubble, index) => {
+                        setTimeout(() => {
+                            bubble.style.opacity = '1';
+                            bubble.style.transform = 'translateY(0)';
+                        }, index * 400 + 300);
+                    });
+
+                    valuesObserver.unobserve(card);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Observe all value cards
+        const valueCards = document.querySelectorAll('.value-card');
+        valueCards.forEach(card => {
+            valuesObserver.observe(card);
+        });
+
+        // Dynamic Platform footer links
+        document.querySelectorAll('[data-target-service]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target-service');
+                const servicesSection = document.getElementById('services');
+
+                // Find the card with this ID
+                const targetCard = document.querySelector(`.service-card[data-service-id="${targetId}"]`);
+
+                if (servicesSection && targetCard) {
+                    manualNavigation = true;
+                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+
+                    // Calculate index dynamically based on available cards
+                    const allCards = Array.from(document.querySelectorAll('.service-card'));
+                    const index = allCards.indexOf(targetCard);
+
+                    if (index !== -1) {
+                        setTimeout(() => {
+                            updateSlider(index);
+                            // Reset flag after animation completes
+                            setTimeout(() => {
+                                manualNavigation = false;
+                            }, 1000);
+                        }, 500);
+                    }
+                }
+            });
+        });
+
+        // Handle URL parameters for direct service linking
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceId = urlParams.get('service');
+
+            if (serviceId) {
+                // Find the target card based on service ID
+                const targetCard = document.querySelector(`.service-card[data-service-id="${serviceId}"]`);
+                const servicesSection = document.getElementById('services');
+
+                if (targetCard && servicesSection) {
+                    // Set manualNavigation to true immediately to prevent scroll conflict
+                    if (typeof manualNavigation !== 'undefined') manualNavigation = true;
+
+                    // Small delay to ensure layout is ready and hash navigation doesn't conflict
+                    setTimeout(() => {
+                        // Scroll to services section
+                        servicesSection.scrollIntoView({ behavior: 'smooth' });
+
+                        // Find the index of the target card
+                        const allCards = Array.from(document.querySelectorAll('.service-card'));
+                        const index = allCards.indexOf(targetCard);
+
+                        // Update slider if index is valid
+                        if (index !== -1) {
+                            updateSlider(index);
+                        }
+
+                        // Reset manualNavigation after scroll animation
+                        setTimeout(() => {
+                            if (typeof manualNavigation !== 'undefined') manualNavigation = false;
+                        }, 1000);
+                    }, 100);
+                }
+            }
+        });
+
+        // Modal Logic
+        // Modal Logic Removed
+
+    </script>
+</body>
+
+</html>

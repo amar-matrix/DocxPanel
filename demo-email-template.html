@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #000;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .footer {
+            background: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #00FF88;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .details {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .detail-item {
+            margin-bottom: 10px;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="margin: 0; letter-spacing: 2px;">DocxPanel</h1>
+            <p style="margin: 5px 0 0; color: #A0A0A0; text-transform: uppercase; font-size: 12px;">Demo Request
+                Notification</p>
+        </div>
+        <div class="content">
+            <h2>New Demo Request Received</h2>
+            <p>Hello Team,</p>
+            <p>You have received a new demo request from the DocxPanel website. Here are the details:</p>
+
+            <div class="details">
+                <div class="detail-item">
+                    <span class="detail-label">Name:</span> {{name}}
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Email:</span> {{email}}
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Company:</span> {{company}}
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Message:</span><br>
+                    {{message}}
+                </div>
+            </div>
+
+            <p>Please reach out to the requester within 24 hours to schedule the demo session.</p>
+
+            <a href="mailto:{{email}}" class="btn">Reply to Requester</a>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 DocxPanel - Healthcare Data Solutions</p>
+            <p>This is an automated notification from your website's demo booking system.</p>
+        </div>
+    </div>
+</body>
+
+</html>
