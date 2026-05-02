@@ -828,6 +828,74 @@
             width: 100%;
         }
 
+        /* ===== SERVICES GRID ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-5);
+            margin-top: var(--spacing-12);
+        }
+
+        .svc-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-6);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+            transition: border-color var(--duration-base), transform var(--duration-moderate), box-shadow var(--duration-base);
+        }
+
+        .svc-card:hover {
+            border-color: var(--color-brand-secondary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 255, 136, 0.08);
+        }
+
+        .svc-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-base);
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-brand-secondary);
+            flex-shrink: 0;
+        }
+
+        .svc-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .svc-title {
+            font-family: var(--font-primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.3;
+        }
+
+        .svc-desc {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        @media (max-width: 1100px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
+
         /* ===== STATS SECTION ===== */
         .stats-grid {
             display: grid;
@@ -3180,129 +3248,94 @@
         <div class="section-container">
             <div class="section-header" data-aos="fade-up">
                 <div class="section-label">[002] OUR SOLUTION</div>
+                <h2 class="section-title">Healthcare AI Data Services</h2>
+                <p class="section-description">
+                    DocxPanel delivers the data infrastructure behind trustworthy healthcare AI. We help organizations source, structure, govern, and activate medical data so it can power research, clinical workflows, compliance, and intelligent systems with confidence.
+                </p>
             </div>
 
-            <div class="problem-section">
-                <div class="problem-content" data-aos="fade-right">
-                    <h2 class="problem-title">A Complete Data Ecosystem</h2>
-                    <h3 class="problem-subtitle">Streamlined for You</h3>
-                    <p class="problem-description">
-                        organized, and ready to power your AI models.
-                    </p>
+            <div class="services-grid">
 
-
-
-                    <div class="progress-indicators">
-                        <div class="progress-bar active" data-index="0">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <div class="progress-bar" data-index="1">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <div class="progress-bar" data-index="2">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <div class="progress-bar" data-index="3">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <div class="progress-bar" data-index="4">
-                            <div class="progress-fill"></div>
-                        </div>
+                <div class="svc-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                        </svg>
                     </div>
+                    <h3 class="svc-title">Healthcare Data Sourcing</h3>
+                    <p class="svc-desc">Secure access to high-value, ethically sourced medical datasets for AI, research, and innovation.</p>
                 </div>
 
-                <div class="problem-visual" data-aos="fade-left">
-                    <div class="problem-frame">
-                        <div class="frame-corners">
-                            <div class="frame-corner tl"></div>
-                            <div class="frame-corner tr"></div>
-                            <div class="frame-corner bl"></div>
-                            <div class="frame-corner br"></div>
-                        </div>
-
-                        <div class="services-slider" id="servicesSlider">
-                            <div class="services-track" id="servicesTrack">
-                                <!-- Service 1: Sourcing -->
-                                <div class="service-card active" data-index="0" data-service-id="sourcing">
-                                    <div class="service-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <circle cx="11" cy="11" r="8" />
-                                            <path d="m21 21-4.35-4.35" />
-                                            <path d="M11 8a3 3 0 0 0-3 3" />
-                                        </svg>
-                                    </div>
-                                    <h3 class="service-title">DATA SOURCING</h3>
-                                    <p class="service-description">
-                                        We're constantly looking for new data partners with hard-to-access or in-demand
-                                        datasets to add to the millions we already have.
-                                    </p>
-                                </div>
-
-                                <!-- Service 2: De-identification -->
-                                <div class="service-card" data-index="1" data-service-id="deid">
-                                    <div class="service-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                                        </svg>
-                                    </div>
-                                    <h3 class="service-title">DE-IDENTIFICATION</h3>
-                                    <p class="service-description">
-                                        We use industry-leading de-identification techniques to thoroughly and reliably
-                                        remove all protected health information (PHI) from our data.
-                                    </p>
-                                </div>
-
-                                <!-- Service 3: Organization -->
-                                <div class="service-card" data-index="2" data-service-id="organization">
-                                    <div class="service-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <rect x="3" y="3" width="7" height="7" />
-                                            <rect x="14" y="3" width="7" height="7" />
-                                            <rect x="14" y="14" width="7" height="7" />
-                                            <rect x="3" y="14" width="7" height="7" />
-                                        </svg>
-                                    </div>
-                                    <h3 class="service-title">DATA ORGANIZATION</h3>
-                                    <p class="service-description">
-                                        We ingest and curate millions of studies into our Atlas platform, enabling AI
-                                        developers to quickly and easily find the data they need.
-                                    </p>
-                                </div>
-
-                                <!-- Service 4: Delivery -->
-                                <div class="service-card" data-index="3" data-service-id="delivery">
-                                    <div class="service-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M5 12h14" />
-                                            <path d="m12 5 7 7-7 7" />
-                                        </svg>
-                                    </div>
-                                    <h3 class="service-title">FAST DELIVERY</h3>
-                                    <p class="service-description">
-                                        Once customers have selected their dataset on our self-service platform, we make
-                                        it available for download in as little as 48 hours.
-                                    </p>
-                                </div>
-
-                                <!-- Service 5: Expert Review -->
-                                <div class="service-card" data-index="4" data-service-id="expert">
-                                    <div class="service-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                            <path d="m9 12 2 2 4-4" />
-                                        </svg>
-                                    </div>
-                                    <h3 class="service-title">EXPERT REVIEW</h3>
-                                    <p class="service-description">
-                                        Experts manually validate automated results to ensure the highest quality and
-                                        compliance standards before delivery.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="svc-card" data-aos="fade-up" data-aos-delay="60">
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
                     </div>
+                    <h3 class="svc-title">De-identification</h3>
+                    <p class="svc-desc">Advanced privacy protection that removes PHI while preserving data usefulness for downstream AI and research.</p>
                 </div>
+
+                <div class="svc-card" data-aos="fade-up" data-aos-delay="120">
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="svc-title">Data Structuring</h3>
+                    <p class="svc-desc">Conversion of unstructured clinical documents into standardized, machine-readable formats ready for AI consumption.</p>
+                </div>
+
+                <div class="svc-card" data-aos="fade-up" data-aos-delay="180">
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+                        </svg>
+                    </div>
+                    <h3 class="svc-title">Medical Annotation</h3>
+                    <p class="svc-desc">Expert labeling and enrichment that gives healthcare data the clinical context AI systems need to learn accurately.</p>
+                </div>
+
+                <div class="svc-card" data-aos="fade-up" data-aos-delay="240">
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="svc-title">AI-Ready Pipelines</h3>
+                    <p class="svc-desc">Preparation and delivery of clean, interoperable datasets for analytics, models, and agentic healthcare workflows.</p>
+                </div>
+
+                <div class="svc-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3 class="svc-title">Governance &amp; Auditability</h3>
+                    <p class="svc-desc">Traceability, immutable logs, and documentation frameworks for accountable AI and clinical operations.</p>
+                </div>
+
+                <div class="svc-card" data-aos="fade-up" data-aos-delay="360">
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="svc-title">Compliance Support</h3>
+                    <p class="svc-desc">Consent-aware, privacy-first workflows aligned with healthcare regulations and data governance requirements.</p>
+                </div>
+
+                <div class="svc-card" data-aos="fade-up" data-aos-delay="420">
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
+                        </svg>
+                    </div>
+                    <h3 class="svc-title">Regulatory Documentation</h3>
+                    <p class="svc-desc">Structured, submission-ready outputs for research, compliance, and regulated healthcare environments.</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -3898,166 +3931,8 @@
             });
         });
 
-        // Services slider with scroll and swipe functionality
-        const servicesSection = document.getElementById('services');
-        const servicesSlider = document.getElementById('servicesSlider');
-        const servicesTrack = document.getElementById('servicesTrack');
-        const serviceCards = document.querySelectorAll('.service-card');
-        const progressBars = document.querySelectorAll('.progress-bar');
-        let currentIndex = 0;
-        let scrollTimeout;
-        let isScrolling = false;
-        let manualNavigation = false; // flag to indicate navigation from footer link
-
-        function updateSlider(index) {
-            if (index < 0 || index >= serviceCards.length) return;
-
-            currentIndex = index;
-
-            // Update active states
-            serviceCards.forEach((card, i) => {
-                card.classList.toggle('active', i === currentIndex);
-            });
-
-            progressBars.forEach((bar, i) => {
-                bar.classList.toggle('active', i === currentIndex);
-            });
-        }
-
-        // Wheel scroll handler on entire services section
-        if (servicesSection) {
-            // Check if services section is in viewport
-            function isServicesSectionInView() {
-                const rect = servicesSection.getBoundingClientRect();
-                return rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
-            }
-
-            let allowNormalScroll = false;
-            let wasInView = false;
-            let isComingFromOtherSection = false;
-
-
-            // Reset to first indicator when entering from top, unless triggered by manual navigation
-            const checkSectionEntry = () => {
-                const inView = isServicesSectionInView();
-                const rect = servicesSection.getBoundingClientRect();
-
-                // If entering services section from top (scrolling down) and not a manual navigation
-                if (inView && !wasInView && rect.top < window.innerHeight / 2 && !manualNavigation) {
-                    currentIndex = 0;
-                    updateSlider(0);
-                    isComingFromOtherSection = true;
-                    // Reset flag after transitions complete
-                    setTimeout(() => { isComingFromOtherSection = false; }, 1500);
-                }
-
-
-
-                wasInView = inView;
-            };
-
-            window.addEventListener('scroll', checkSectionEntry);
-
-            const wheelHandler = (e) => {
-                if (!isServicesSectionInView()) return;
-
-                // Allow normal scroll if flag is set
-                if (allowNormalScroll) return;
-
-                e.preventDefault();
-
-                if (isScrolling) return;
-
-                // Use longer timings if coming from other section
-                const scrollDelay = isComingFromOtherSection ? 50 : 27;
-                const transitionLock = isComingFromOtherSection ? 500 : 281;
-                const sectionTransition = isComingFromOtherSection ? 1000 : 750;
-
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    if (e.deltaY > 0) {
-                        // Scrolling down
-                        if (currentIndex < serviceCards.length - 1) {
-                            isScrolling = true;
-                            updateSlider(currentIndex + 1);
-                            setTimeout(() => { isScrolling = false; }, transitionLock);
-                        } else {
-                            // At final indicator, allow normal scroll to next section
-                            allowNormalScroll = true;
-                            const nextSection = document.getElementById('platform');
-                            if (nextSection) {
-                                nextSection.scrollIntoView({ behavior: 'smooth' });
-                            }
-                            setTimeout(() => { allowNormalScroll = false; }, sectionTransition);
-                        }
-                    } else if (e.deltaY < 0) {
-                        // Scrolling up
-                        if (currentIndex > 0) {
-                            isScrolling = true;
-                            updateSlider(currentIndex - 1);
-                            setTimeout(() => { isScrolling = false; }, transitionLock);
-                        } else {
-                            // At first indicator, allow normal scroll to previous section
-                            allowNormalScroll = true;
-                            const heroSection = document.querySelector('.hero');
-                            if (heroSection) {
-                                heroSection.scrollIntoView({ behavior: 'smooth' });
-                            }
-                            setTimeout(() => { allowNormalScroll = false; }, sectionTransition);
-                        }
-                    }
-                }, scrollDelay);
-            };
-
-            window.addEventListener('wheel', wheelHandler, { passive: false });
-
-            // Touch swipe handler on section
-            let touchStartY = 0;
-            let touchEndY = 0;
-
-            servicesSection.addEventListener('touchstart', (e) => {
-                touchStartY = e.changedTouches[0].screenY;
-            }, { passive: true });
-
-            servicesSection.addEventListener('touchend', (e) => {
-                touchEndY = e.changedTouches[0].screenY;
-                handleSwipe();
-            }, { passive: true });
-
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                const diff = touchStartY - touchEndY;
-
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        // Swipe up
-                        if (currentIndex < serviceCards.length - 1) {
-                            updateSlider(currentIndex + 1);
-                        } else {
-                            // Go to next section
-                            const nextSection = document.getElementById('platform');
-                            if (nextSection) {
-                                nextSection.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }
-                    } else if (diff < 0 && currentIndex > 0) {
-                        // Swipe down
-                        updateSlider(currentIndex - 1);
-                    }
-                }
-            }
-        }
-
-        // Progress bar click handler
-        progressBars.forEach((bar) => {
-            bar.addEventListener('click', () => {
-                const index = parseInt(bar.getAttribute('data-index'));
-                updateSlider(index);
-            });
-        });
-
         // Add glow effect on hover for cards
-        const cards = document.querySelectorAll('.service-card, .stat-card');
+        const cards = document.querySelectorAll('.svc-card, .stat-card');
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -4242,71 +4117,21 @@
             valuesObserver.observe(card);
         });
 
-        // Dynamic Platform footer links
+        // Scroll to services section from footer/external links
         document.querySelectorAll('[data-target-service]').forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('data-target-service');
-                const servicesSection = document.getElementById('services');
-
-                // Find the card with this ID
-                const targetCard = document.querySelector(`.service-card[data-service-id="${targetId}"]`);
-
-                if (servicesSection && targetCard) {
-                    manualNavigation = true;
-                    servicesSection.scrollIntoView({ behavior: 'smooth' });
-
-                    // Calculate index dynamically based on available cards
-                    const allCards = Array.from(document.querySelectorAll('.service-card'));
-                    const index = allCards.indexOf(targetCard);
-
-                    if (index !== -1) {
-                        setTimeout(() => {
-                            updateSlider(index);
-                            // Reset flag after animation completes
-                            setTimeout(() => {
-                                manualNavigation = false;
-                            }, 1000);
-                        }, 500);
-                    }
-                }
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Handle URL parameters for direct service linking
+        // Handle ?service= URL param — just scroll to services section
         window.addEventListener('load', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const serviceId = urlParams.get('service');
-
+            const serviceId = new URLSearchParams(window.location.search).get('service');
             if (serviceId) {
-                // Find the target card based on service ID
-                const targetCard = document.querySelector(`.service-card[data-service-id="${serviceId}"]`);
-                const servicesSection = document.getElementById('services');
-
-                if (targetCard && servicesSection) {
-                    // Set manualNavigation to true immediately to prevent scroll conflict
-                    if (typeof manualNavigation !== 'undefined') manualNavigation = true;
-
-                    // Small delay to ensure layout is ready and hash navigation doesn't conflict
-                    setTimeout(() => {
-                        // Scroll to services section
-                        servicesSection.scrollIntoView({ behavior: 'smooth' });
-
-                        // Find the index of the target card
-                        const allCards = Array.from(document.querySelectorAll('.service-card'));
-                        const index = allCards.indexOf(targetCard);
-
-                        // Update slider if index is valid
-                        if (index !== -1) {
-                            updateSlider(index);
-                        }
-
-                        // Reset manualNavigation after scroll animation
-                        setTimeout(() => {
-                            if (typeof manualNavigation !== 'undefined') manualNavigation = false;
-                        }, 1000);
-                    }, 100);
-                }
+                setTimeout(() => {
+                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
             }
         });
 
