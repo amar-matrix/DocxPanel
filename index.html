@@ -550,12 +550,7 @@
         }
 
         .section#services {
-            min-height: 100vh;
-            height: 100vh;
-            padding: var(--spacing-8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: var(--spacing-16) var(--spacing-8);
             overflow: visible;
             box-sizing: border-box;
             position: relative;
@@ -1153,6 +1148,15 @@
             line-height: 1.6;
         }
 
+        .value-usecase {
+            font-size: 0.8rem;
+            color: var(--color-text-tertiary);
+            line-height: 1.65;
+            margin-top: var(--spacing-3);
+            padding-top: var(--spacing-3);
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
         /* ===== CTA SECTION ===== */
         .cta-section {
             background: var(--color-surface-card);
@@ -1396,7 +1400,7 @@
 
             .section#services {
                 height: auto;
-                min-height: 100vh;
+                min-height: auto;
                 padding: var(--spacing-12) var(--spacing-4);
             }
 
@@ -3402,22 +3406,22 @@
                     </div>
                     <h3 class="value-title">Outcome Driven</h3>
                     <p class="value-subtitle">Results, not decks.</p>
+                    <p class="value-usecase">A pharma team needed a KRAS mutation cohort for an oncology trial. We delivered 2,400 de-identified, annotated patient records in 5 days — cutting their 6-week vendor estimate by 88%. No slide decks. Just data, ready to train.</p>
                 </div>
 
                 <!-- Value 2: Execution Led -->
                 <div class="value-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="value-icon">
                         <div class="value-terminal">
-                            <div class="terminal-line">> aws s3 sync --encrypted AES256</div>
-                            <div class="terminal-line">> hipaa-compliance --verify</div>
-                            <div class="terminal-line" style="color: var(--color-brand-secondary);">✓ PHI data
-                                de-identified...</div>
-                            <div class="terminal-line" style="color: var(--color-brand-secondary);">✓ HIPAA compliant
-                                (verified)</div>
+                            <div class="terminal-line">> docxpanel deid --standard HIPAA</div>
+                            <div class="terminal-line">> annotate --schema ICD-11 --lang hi,en</div>
+                            <div class="terminal-line" style="color: var(--color-brand-secondary);">✓ PHI removed · audit log saved</div>
+                            <div class="terminal-line" style="color: var(--color-brand-secondary);">✓ 50,000 records structured</div>
                         </div>
                     </div>
                     <h3 class="value-title">Execution Led</h3>
                     <p class="value-subtitle">Builders, not advisors.</p>
+                    <p class="value-usecase">A diagnostics startup's AI model stalled due to inconsistent labels. Our annotation team re-labeled 50,000 radiology reports against ICD-11 in 3 weeks, lifting model F1 from 0.71 to 0.89 — without a single strategy workshop.</p>
                 </div>
 
                 <!-- Value 3: Built For Speed -->
@@ -3439,6 +3443,7 @@
                     </div>
                     <h3 class="value-title">Built For Speed</h3>
                     <p class="value-subtitle">Weeks, not quarters.</p>
+                    <p class="value-usecase">A CRO needed CTRI-compliant patient data for a regulatory submission across 6 hospital systems in India. We structured, de-identified, and compliance-mapped 8,000 records in under 4 weeks — from contract to delivery.</p>
                 </div>
 
                 <!-- Value 4: Boutique -->
@@ -3451,6 +3456,7 @@
                     </div>
                     <h3 class="value-title">Boutique</h3>
                     <p class="value-subtitle">Senior attention only.</p>
+                    <p class="value-usecase">A hospital network needed a DPDP-aligned data governance framework before onboarding an AI vendor. Our founding clinical and technical leads designed it end-to-end alongside their team — no account managers, no handoffs.</p>
                 </div>
             </div>
         </div>
