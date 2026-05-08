@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -96,31 +96,37 @@
 
         /* Light Theme Overrides */
         [data-theme="light"] {
-            --color-brand-primary: #000000;
-            --color-brand-secondary: #00A85A;
-            --color-surface-base: #F9F9F9;
-            --color-surface-subtle: #F5F5F5;
-            --color-surface-card: #F9F9F9;
-            --color-surface-elevated: #F0F0F0;
-            --color-surface-overlay: rgba(255, 255, 255, 0.85);
+            /* Cisco-inspired: white + sky blue */
+            --color-brand-primary: #1D1D1B;
+            --color-brand-secondary: #049FD9;
+            --color-brand-secondary-rgb: 4, 159, 217;
+            --color-brand-tertiary: #005073;
 
-            --color-text-primary: #111111;
-            --color-text-secondary: #555555;
-            --color-text-tertiary: #888888;
-            --color-text-accent: #000000;
-            --color-text-link: #00A85A;
+            --color-surface-base: #FFFFFF;
+            --color-surface-subtle: #F0F8FC;
+            --color-surface-card: #FFFFFF;
+            --color-surface-elevated: #E4F3FA;
+            --color-surface-overlay: rgba(255, 255, 255, 0.92);
 
-            --color-status-success: #00A85A;
+            --color-text-primary: #1D1D1B;
+            --color-text-secondary: #4A5568;
+            --color-text-tertiary: #718096;
+            --color-text-accent: #005073;
+            --color-text-link: #049FD9;
 
-            --color-border-default: #E0E0E0;
-            --color-border-subtle: #EEEEEE;
-            --color-border-emphasis: #CCCCCC;
+            --color-status-success: #049FD9;
+            --color-status-error: #E53E3E;
 
-            --shadow-glow-sm: 0 0 10px rgba(0, 0, 0, 0.1);
-            --shadow-glow-md: 0 0 20px rgba(0, 0, 0, 0.1);
-            --shadow-glow-cyan: 0 0 15px rgba(0, 255, 136, 0.2);
-            --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --color-border-default: #BEE3F8;
+            --color-border-subtle: #E8F4FA;
+            --color-border-emphasis: #90CDF4;
+            --color-border-accent: #049FD9;
+
+            --shadow-glow-sm: 0 0 12px rgba(4, 159, 217, 0.15);
+            --shadow-glow-md: 0 0 24px rgba(4, 159, 217, 0.18);
+            --shadow-glow-cyan: 0 0 15px rgba(4, 159, 217, 0.25);
+            --shadow-base: 0 4px 6px -1px rgba(0, 80, 115, 0.08);
+            --shadow-md: 0 10px 15px -3px rgba(0, 80, 115, 0.1);
         }
 
         /* Light mode logo inversion */
@@ -2809,12 +2815,15 @@
         const sunIcon = document.querySelector('.sun-icon');
         const moonIcon = document.querySelector('.moon-icon');
 
-        // Check saved theme
-        const savedTheme = localStorage.getItem('theme');
+        // Default is light; apply saved preference if set
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
         if (savedTheme === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
             sunIcon.style.display = 'block';
             moonIcon.style.display = 'none';
+        } else {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
         }
 
         themeToggle.addEventListener('click', () => {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -94,31 +94,37 @@
 
         /* Light Theme Overrides */
         [data-theme="light"] {
-            --color-brand-primary: #000000;
-            --color-brand-secondary: #00A85A;
-            --color-surface-base: #F9F9F9;
-            --color-surface-subtle: #F5F5F5;
-            --color-surface-card: #F9F9F9;
-            --color-surface-elevated: #F0F0F0;
-            --color-surface-overlay: rgba(255, 255, 255, 0.85);
+            /* Cisco-inspired: white + sky blue */
+            --color-brand-primary: #1D1D1B;
+            --color-brand-secondary: #049FD9;
+            --color-brand-secondary-rgb: 4, 159, 217;
+            --color-brand-tertiary: #005073;
 
-            --color-text-primary: #111111;
-            --color-text-secondary: #555555;
-            --color-text-tertiary: #888888;
-            --color-text-accent: #000000;
-            --color-text-link: #00A85A;
+            --color-surface-base: #FFFFFF;
+            --color-surface-subtle: #F0F8FC;
+            --color-surface-card: #FFFFFF;
+            --color-surface-elevated: #E4F3FA;
+            --color-surface-overlay: rgba(255, 255, 255, 0.92);
 
-            --color-status-success: #00A85A;
+            --color-text-primary: #1D1D1B;
+            --color-text-secondary: #4A5568;
+            --color-text-tertiary: #718096;
+            --color-text-accent: #005073;
+            --color-text-link: #049FD9;
 
-            --color-border-default: #E0E0E0;
-            --color-border-subtle: #EEEEEE;
-            --color-border-emphasis: #CCCCCC;
+            --color-status-success: #049FD9;
+            --color-status-error: #E53E3E;
 
-            --shadow-glow-sm: 0 0 10px rgba(0, 0, 0, 0.1);
-            --shadow-glow-md: 0 0 20px rgba(0, 0, 0, 0.1);
-            --shadow-glow-cyan: 0 0 15px rgba(0, 255, 136, 0.2);
-            --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --color-border-default: #BEE3F8;
+            --color-border-subtle: #E8F4FA;
+            --color-border-emphasis: #90CDF4;
+            --color-border-accent: #049FD9;
+
+            --shadow-glow-sm: 0 0 12px rgba(4, 159, 217, 0.15);
+            --shadow-glow-md: 0 0 24px rgba(4, 159, 217, 0.18);
+            --shadow-glow-cyan: 0 0 15px rgba(4, 159, 217, 0.25);
+            --shadow-base: 0 4px 6px -1px rgba(0, 80, 115, 0.08);
+            --shadow-md: 0 10px 15px -3px rgba(0, 80, 115, 0.1);
         }
 
         /* Light mode logo inversion */
@@ -183,8 +189,56 @@
         [data-theme="dark"] {
             --color-surface-base: #000000;
             --color-border-subtle: #222222;
-            /* Slightly brighter for better grid visibility */
             --color-text-primary: #FFFFFF;
+            --color-brand-secondary-rgb: 0, 255, 136;
+        }
+
+        /* Light mode overrides for hardcoded green rgba accents */
+        [data-theme="light"] .svc-icon,
+        [data-theme="light"] .module-icon {
+            background: rgba(4, 159, 217, 0.08);
+            border-color: rgba(4, 159, 217, 0.25);
+        }
+        [data-theme="light"] .svc-card:hover,
+        [data-theme="light"] .module-card:hover {
+            box-shadow: 0 12px 32px rgba(4, 159, 217, 0.12);
+        }
+        [data-theme="light"] .module-tab.active {
+            background: rgba(4, 159, 217, 0.1);
+            box-shadow: 0 0 14px rgba(4, 159, 217, 0.18);
+        }
+        [data-theme="light"] .stat-card:hover {
+            box-shadow: 0 0 24px rgba(4, 159, 217, 0.15);
+        }
+        [data-theme="light"] .section-label {
+            color: #049FD9;
+        }
+        [data-theme="light"] .hero::before {
+            background: radial-gradient(circle at 50% 40%,
+                rgba(4, 159, 217, 0.08) 0%, transparent 60%);
+        }
+        [data-theme="light"] .btn-primary {
+            background: #049FD9;
+            border-color: #049FD9;
+            color: #FFFFFF;
+        }
+        [data-theme="light"] .btn-primary:hover {
+            background: #0387BA;
+            border-color: #0387BA;
+            box-shadow: 0 0 20px rgba(4, 159, 217, 0.35);
+        }
+        [data-theme="light"] .li-follow-link {
+            background: #049FD9;
+            color: #FFFFFF;
+        }
+        [data-theme="light"] .cohort-live-pill {
+            background: rgba(4, 159, 217, 0.15);
+            color: #049FD9;
+        }
+        [data-theme="light"] body::before {
+            background-image:
+                linear-gradient(rgba(4, 159, 217, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(4, 159, 217, 0.07) 1px, transparent 1px);
         }
 
         /* Fix for Safari background gradient update on theme change */
@@ -534,6 +588,72 @@
             max-width: 800px;
             margin: 0 auto var(--spacing-10);
             line-height: 1.6;
+        }
+
+        .hero-metrics {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            margin: 0 auto var(--spacing-10);
+            background: var(--color-surface-card);
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-5) var(--spacing-8);
+            max-width: 720px;
+            box-shadow: var(--shadow-base);
+        }
+
+        .hero-metric {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: var(--spacing-2) var(--spacing-8);
+        }
+
+        .hero-metric-number {
+            font-family: var(--font-primary);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-brand-secondary);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-metric-label {
+            font-size: 0.7rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-primary);
+            white-space: nowrap;
+        }
+
+        .hero-metric-divider {
+            width: 1px;
+            height: 40px;
+            background: var(--color-border-default);
+            flex-shrink: 0;
+        }
+
+        .hero-trust {
+            margin-top: var(--spacing-6);
+            font-family: var(--font-primary);
+            font-size: 0.65rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+        }
+
+        .hero-trust-dot {
+            color: var(--color-brand-secondary);
         }
 
         .hero-cta {
@@ -3228,22 +3348,56 @@
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-label" data-aos="fade-down">
-                <span class="mono">Lets build together</span>
+                <span class="mono">India's Healthcare Data Intelligence Platform</span>
             </div>
 
             <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                A Complete Data Ecosystem, Streamlined for You
+                The Data Foundation for<br>Next-Gen Medical AI
             </h1>
 
             <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                Access millions of de-identified medical studies. We're building the data layer that will power the
-                future of healthcare AI.
+                Source, structure, govern, and activate clinical data at scale. DocxPanel powers AI researchers, clinical trial teams, and healthcare innovators with audit-ready, compliance-first data infrastructure — built for India, designed for the world.
             </p>
 
-            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-                <a href="#services" class="btn btn-primary">Explore Services</a>
-                <a href="#platform" class="btn btn-secondary">View Platform</a>
+            <!-- Key metrics strip -->
+            <div class="hero-metrics" data-aos="fade-up" data-aos-delay="280">
+                <div class="hero-metric">
+                    <span class="hero-metric-number">2.8B</span>
+                    <span class="hero-metric-label">Biomedical Relations</span>
+                </div>
+                <div class="hero-metric-divider"></div>
+                <div class="hero-metric">
+                    <span class="hero-metric-number">19k+</span>
+                    <span class="hero-metric-label">Clinical Studies</span>
+                </div>
+                <div class="hero-metric-divider"></div>
+                <div class="hero-metric">
+                    <span class="hero-metric-number">&lt;48hrs</span>
+                    <span class="hero-metric-label">Data Delivery</span>
+                </div>
+                <div class="hero-metric-divider"></div>
+                <div class="hero-metric">
+                    <span class="hero-metric-number">5</span>
+                    <span class="hero-metric-label">Intelligence Modules</span>
+                </div>
             </div>
+
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="360">
+                <a href="#contact" class="btn btn-primary">
+                    Start Building
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;margin-left:6px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+                <a href="#platform" class="btn btn-secondary">See Platform</a>
+            </div>
+
+            <p class="hero-trust" data-aos="fade-up" data-aos-delay="440">
+                <span>HIPAA Safe Harbor</span><span class="hero-trust-dot">·</span>
+                <span>India DPDP Act</span><span class="hero-trust-dot">·</span>
+                <span>GDPR</span><span class="hero-trust-dot">·</span>
+                <span>CTRI</span><span class="hero-trust-dot">·</span>
+                <span>FDA</span><span class="hero-trust-dot">·</span>
+                <span>EMA</span>
+            </p>
         </div>
     </section>
 
@@ -4093,12 +4247,15 @@
         const sunIcon = document.querySelector('.sun-icon');
         const moonIcon = document.querySelector('.moon-icon');
 
-        // Check saved theme
-        const savedTheme = localStorage.getItem('theme');
+        // Default is light; apply saved preference if set
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
         if (savedTheme === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
             sunIcon.style.display = 'block';
             moonIcon.style.display = 'none';
+        } else {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
         }
 
         themeToggle.addEventListener('click', () => {
