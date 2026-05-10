@@ -94,37 +94,37 @@
 
         /* Light Theme Overrides */
         [data-theme="light"] {
-            /* Cisco-inspired: white + sky blue */
+            /* Neon sky blue — electric, vibrant */
             --color-brand-primary: #1D1D1B;
-            --color-brand-secondary: #049FD9;
-            --color-brand-secondary-rgb: 4, 159, 217;
-            --color-brand-tertiary: #005073;
+            --color-brand-secondary: #0090FF;
+            --color-brand-secondary-rgb: 0, 144, 255;
+            --color-brand-tertiary: #00CFFF;
 
             --color-surface-base: #FFFFFF;
-            --color-surface-subtle: #F0F8FC;
+            --color-surface-subtle: #EEF7FF;
             --color-surface-card: #FFFFFF;
-            --color-surface-elevated: #E4F3FA;
+            --color-surface-elevated: #DBEEFF;
             --color-surface-overlay: rgba(255, 255, 255, 0.92);
 
-            --color-text-primary: #1D1D1B;
-            --color-text-secondary: #4A5568;
-            --color-text-tertiary: #718096;
-            --color-text-accent: #005073;
-            --color-text-link: #049FD9;
+            --color-text-primary: #0D1B2A;
+            --color-text-secondary: #3D5A73;
+            --color-text-tertiary: #6B8FA8;
+            --color-text-accent: #005099;
+            --color-text-link: #0090FF;
 
-            --color-status-success: #049FD9;
+            --color-status-success: #0090FF;
             --color-status-error: #E53E3E;
 
-            --color-border-default: #BEE3F8;
-            --color-border-subtle: #E8F4FA;
-            --color-border-emphasis: #90CDF4;
-            --color-border-accent: #049FD9;
+            --color-border-default: #B3D9FF;
+            --color-border-subtle: #DBEEFF;
+            --color-border-emphasis: #80BFFF;
+            --color-border-accent: #0090FF;
 
-            --shadow-glow-sm: 0 0 12px rgba(4, 159, 217, 0.15);
-            --shadow-glow-md: 0 0 24px rgba(4, 159, 217, 0.18);
-            --shadow-glow-cyan: 0 0 15px rgba(4, 159, 217, 0.25);
-            --shadow-base: 0 4px 6px -1px rgba(0, 80, 115, 0.08);
-            --shadow-md: 0 10px 15px -3px rgba(0, 80, 115, 0.1);
+            --shadow-glow-sm: 0 0 14px rgba(0, 144, 255, 0.2);
+            --shadow-glow-md: 0 0 28px rgba(0, 144, 255, 0.25);
+            --shadow-glow-cyan: 0 0 18px rgba(0, 207, 255, 0.3);
+            --shadow-base: 0 4px 6px -1px rgba(0, 80, 153, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 80, 153, 0.12);
         }
 
         /* Light mode logo inversion */
@@ -193,52 +193,64 @@
             --color-brand-secondary-rgb: 0, 255, 136;
         }
 
-        /* Light mode overrides for hardcoded green rgba accents */
+        /* Light mode overrides for hardcoded green/old rgba accents → neon blue */
         [data-theme="light"] .svc-icon,
         [data-theme="light"] .module-icon {
-            background: rgba(4, 159, 217, 0.08);
-            border-color: rgba(4, 159, 217, 0.25);
+            background: rgba(0, 144, 255, 0.08);
+            border-color: rgba(0, 144, 255, 0.25);
         }
         [data-theme="light"] .svc-card:hover,
         [data-theme="light"] .module-card:hover {
-            box-shadow: 0 12px 32px rgba(4, 159, 217, 0.12);
+            box-shadow: 0 12px 32px rgba(0, 144, 255, 0.14);
         }
         [data-theme="light"] .module-tab.active {
-            background: rgba(4, 159, 217, 0.1);
-            box-shadow: 0 0 14px rgba(4, 159, 217, 0.18);
+            background: rgba(0, 144, 255, 0.1);
+            box-shadow: 0 0 16px rgba(0, 144, 255, 0.2);
         }
         [data-theme="light"] .stat-card:hover {
-            box-shadow: 0 0 24px rgba(4, 159, 217, 0.15);
+            box-shadow: 0 0 28px rgba(0, 144, 255, 0.18);
         }
         [data-theme="light"] .section-label {
-            color: #049FD9;
+            color: #0090FF;
         }
         [data-theme="light"] .hero::before {
-            background: radial-gradient(circle at 50% 40%,
-                rgba(4, 159, 217, 0.08) 0%, transparent 60%);
+            background:
+                radial-gradient(ellipse at 70% 25%, rgba(0, 144, 255, 0.13) 0%, transparent 55%),
+                radial-gradient(ellipse at 15% 75%, rgba(0, 207, 255, 0.08) 0%, transparent 45%);
+            animation: pulseGlow 5s ease-in-out infinite;
         }
         [data-theme="light"] .btn-primary {
-            background: #049FD9;
-            border-color: #049FD9;
+            background: #0090FF;
+            border-color: #0090FF;
             color: #FFFFFF;
         }
         [data-theme="light"] .btn-primary:hover {
-            background: #0387BA;
-            border-color: #0387BA;
-            box-shadow: 0 0 20px rgba(4, 159, 217, 0.35);
+            background: #0076D6;
+            border-color: #0076D6;
+            box-shadow: 0 0 24px rgba(0, 144, 255, 0.45);
         }
         [data-theme="light"] .li-follow-link {
-            background: #049FD9;
+            background: #0090FF;
             color: #FFFFFF;
         }
         [data-theme="light"] .cohort-live-pill {
-            background: rgba(4, 159, 217, 0.15);
-            color: #049FD9;
+            background: rgba(0, 144, 255, 0.15);
+            color: #0090FF;
         }
         [data-theme="light"] body::before {
             background-image:
-                linear-gradient(rgba(4, 159, 217, 0.07) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(4, 159, 217, 0.07) 1px, transparent 1px);
+                linear-gradient(rgba(0, 144, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 144, 255, 0.06) 1px, transparent 1px);
+        }
+        [data-theme="light"] .value-card {
+            border-color: #DBEEFF;
+        }
+        [data-theme="light"] .value-card:hover {
+            border-color: #0090FF;
+            box-shadow: 0 0 28px rgba(0, 144, 255, 0.12);
+        }
+        [data-theme="light"] .navbar {
+            border-bottom-color: #DBEEFF;
         }
 
         /* Fix for Safari background gradient update on theme change */
@@ -661,6 +673,104 @@
             gap: var(--spacing-4);
             justify-content: center;
             flex-wrap: wrap;
+        }
+
+        /* ===== HERO BACKGROUND ART ===== */
+        .hero-bg-art {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Base for all floating SVG art pieces */
+        .hba {
+            position: absolute;
+            color: var(--color-brand-secondary);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        /* Only show in light mode */
+        [data-theme="light"] .hba { opacity: 1; }
+
+        .hba--graph {
+            top: 5%;
+            right: 2%;
+            width: clamp(200px, 22vw, 340px);
+            animation: floatY 9s ease-in-out infinite;
+        }
+        .hba--dna {
+            top: 8%;
+            left: 3%;
+            width: clamp(32px, 3.5vw, 60px);
+            animation: floatY 12s ease-in-out infinite 2s;
+        }
+        .hba--cross {
+            top: 18%;
+            left: 12%;
+            width: clamp(30px, 3vw, 52px);
+            opacity: 0;
+            animation: floatY 10s ease-in-out infinite 1s;
+        }
+        [data-theme="light"] .hba--cross { opacity: 0.35; }
+
+        .hba--pipeline {
+            bottom: 8%;
+            left: 3%;
+            width: clamp(180px, 20vw, 270px);
+            animation: floatY 11s ease-in-out infinite 0.5s;
+        }
+        [data-theme="light"] .hba--pipeline { opacity: 0.55; }
+        [data-theme="light"] .hba--graph    { opacity: 0.65; }
+        [data-theme="light"] .hba--dna      { opacity: 0.5;  }
+
+        .hba--atom {
+            bottom: 6%;
+            right: 4%;
+            width: clamp(70px, 8vw, 120px);
+            animation: spinSlow 18s linear infinite, floatY 8s ease-in-out infinite 3s;
+        }
+        [data-theme="light"] .hba--atom { opacity: 0.45; }
+
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-14px); }
+        }
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* Floating data particles */
+        .hba-particles { position: absolute; inset: 0; }
+        .hba-p {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-brand-secondary);
+            opacity: 0;
+            animation: particleFloat 6s ease-in-out infinite;
+        }
+        [data-theme="light"] .hba-p { opacity: 0.35; }
+
+        .hba-p:nth-child(1)  { top: 15%; left: 22%;  animation-delay: 0s;    animation-duration: 7s;  width: 5px; height: 5px; }
+        .hba-p:nth-child(2)  { top: 35%; left: 8%;   animation-delay: 1.2s;  animation-duration: 9s;  width: 4px; height: 4px; }
+        .hba-p:nth-child(3)  { top: 60%; left: 30%;  animation-delay: 2.4s;  animation-duration: 8s;  width: 6px; height: 6px; }
+        .hba-p:nth-child(4)  { top: 20%; right: 25%; animation-delay: 0.6s;  animation-duration: 10s; width: 4px; height: 4px; }
+        .hba-p:nth-child(5)  { top: 70%; right: 20%; animation-delay: 3.1s;  animation-duration: 7s;  width: 5px; height: 5px; }
+        .hba-p:nth-child(6)  { top: 45%; left: 48%;  animation-delay: 1.8s;  animation-duration: 11s; width: 3px; height: 3px; }
+        .hba-p:nth-child(7)  { top: 80%; left: 55%;  animation-delay: 4s;    animation-duration: 8s;  width: 4px; height: 4px; }
+        .hba-p:nth-child(8)  { top: 10%; right: 42%; animation-delay: 2.7s;  animation-duration: 9s;  width: 5px; height: 5px; }
+
+        @keyframes particleFloat {
+            0%   { transform: translate(0, 0) scale(1); opacity: 0; }
+            20%  { opacity: 0.5; }
+            50%  { transform: translate(12px, -20px) scale(1.2); opacity: 0.35; }
+            80%  { opacity: 0.2; }
+            100% { transform: translate(-8px, 16px) scale(0.8); opacity: 0; }
         }
 
         /* ===== SECTION STYLES ===== */
@@ -3346,6 +3456,85 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+
+        <!-- Floating background art -->
+        <div class="hero-bg-art" aria-hidden="true">
+
+            <!-- Knowledge graph nodes top-right -->
+            <svg class="hba hba--graph" viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="160" cy="80" r="10" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.08)"/>
+                <circle cx="260" cy="40" r="7" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.06)"/>
+                <circle cx="300" cy="130" r="9" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.06)"/>
+                <circle cx="200" cy="180" r="6" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.05)"/>
+                <circle cx="80"  cy="50"  r="8" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.06)"/>
+                <circle cx="60"  cy="160" r="5" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.05)"/>
+                <circle cx="240" cy="220" r="7" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.05)"/>
+                <line x1="160" y1="80"  x2="260" y2="40"  stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="160" y1="80"  x2="300" y2="130" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="160" y1="80"  x2="80"  y2="50"  stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="300" y1="130" x2="200" y2="180" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="200" y1="180" x2="240" y2="220" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="80"  y1="50"  x2="60"  y2="160" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="260" y1="40"  x2="300" y2="130" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                <text x="150" y="76"  font-size="7" fill="currentColor" opacity="0.6" font-family="monospace">KRAS</text>
+                <text x="250" y="36"  font-size="7" fill="currentColor" opacity="0.6" font-family="monospace">TP53</text>
+                <text x="288" y="126" font-size="7" fill="currentColor" opacity="0.6" font-family="monospace">BRCA1</text>
+                <text x="190" y="176" font-size="7" fill="currentColor" opacity="0.6" font-family="monospace">EGFR</text>
+                <text x="68"  y="46"  font-size="7" fill="currentColor" opacity="0.6" font-family="monospace">PIK3CA</text>
+            </svg>
+
+            <!-- DNA helix left -->
+            <svg class="hba hba--dna" viewBox="0 0 60 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 10 Q50 35 10 60 Q50 85 10 110 Q50 135 10 160 Q50 185 10 210 Q50 235 10 260" stroke="currentColor" stroke-width="1.8" stroke-dasharray="0"/>
+                <path d="M50 10 Q10 35 50 60 Q10 85 50 110 Q10 135 50 160 Q10 185 50 210 Q10 235 50 260" stroke="currentColor" stroke-width="1.8" opacity="0.6"/>
+                <line x1="10" y1="35"  x2="50" y2="35"  stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                <line x1="10" y1="85"  x2="50" y2="85"  stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                <line x1="10" y1="135" x2="50" y2="135" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                <line x1="10" y1="185" x2="50" y2="185" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                <line x1="10" y1="235" x2="50" y2="235" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            </svg>
+
+            <!-- Medical cross top-left -->
+            <svg class="hba hba--cross" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="5"  width="20" height="50" rx="4" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.05)"/>
+                <rect x="5"  y="20" width="50" height="20" rx="4" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.05)"/>
+            </svg>
+
+            <!-- Data pipeline flow bottom-left -->
+            <svg class="hba hba--pipeline" viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2"   y="25" width="44" height="30" rx="6" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.06)"/>
+                <rect x="72"  y="25" width="44" height="30" rx="6" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.06)"/>
+                <rect x="142" y="25" width="44" height="30" rx="6" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.06)"/>
+                <rect x="212" y="25" width="44" height="30" rx="6" stroke="currentColor" stroke-width="1.5" fill="rgba(0,144,255,0.06)"/>
+                <line x1="46" y1="40" x2="72"  y2="40" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr)"/>
+                <line x1="116" y1="40" x2="142" y2="40" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="186" y1="40" x2="212" y2="40" stroke="currentColor" stroke-width="1.5"/>
+                <text x="8"   y="43" font-size="7" fill="currentColor" opacity="0.7" font-family="monospace">SOURCE</text>
+                <text x="76"  y="43" font-size="7" fill="currentColor" opacity="0.7" font-family="monospace">DE-ID</text>
+                <text x="148" y="43" font-size="7" fill="currentColor" opacity="0.7" font-family="monospace">STRUCT</text>
+                <text x="218" y="43" font-size="7" fill="currentColor" opacity="0.7" font-family="monospace">AI-READY</text>
+                <text x="48"  y="37" font-size="10" fill="currentColor" opacity="0.5">→</text>
+                <text x="118" y="37" font-size="10" fill="currentColor" opacity="0.5">→</text>
+                <text x="188" y="37" font-size="10" fill="currentColor" opacity="0.5">→</text>
+            </svg>
+
+            <!-- Floating data particles -->
+            <div class="hba-particles">
+                <span class="hba-p"></span><span class="hba-p"></span><span class="hba-p"></span>
+                <span class="hba-p"></span><span class="hba-p"></span><span class="hba-p"></span>
+                <span class="hba-p"></span><span class="hba-p"></span>
+            </div>
+
+            <!-- Atom molecule bottom-right -->
+            <svg class="hba hba--atom" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="60" r="8" stroke="currentColor" stroke-width="2" fill="rgba(0,144,255,0.1)"/>
+                <ellipse cx="60" cy="60" rx="50" ry="20" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                <ellipse cx="60" cy="60" rx="50" ry="20" stroke="currentColor" stroke-width="1.5" opacity="0.5" transform="rotate(60 60 60)"/>
+                <ellipse cx="60" cy="60" rx="50" ry="20" stroke="currentColor" stroke-width="1.5" opacity="0.5" transform="rotate(120 60 60)"/>
+            </svg>
+
+        </div>
+
         <div class="hero-container">
             <div class="hero-label" data-aos="fade-down">
                 <span class="mono">India's Healthcare Data Intelligence Platform</span>
